@@ -19,8 +19,12 @@
     scrollbar-width: none;
 }
 
-.text-gray-100 {
+.text-gray-20 {
     color: #3a3939 !important;
+}
+
+.text-gray-100 {
+    color: #9e9e9e !important;
 }
 
 .text-indent {
