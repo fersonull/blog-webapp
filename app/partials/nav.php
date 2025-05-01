@@ -33,8 +33,8 @@
             </ul>
         </div>
 
-        <div class="p-3 w-5 h-5 bg-secondary rounded-circle d-none d-md-block">
-
+        <div class="bg-secondary bg-primary rounded-circle d-none d-md-block overflow-hidden" style="width: 2.5rem; height: 2.5rem;">
+            <img src="app/assets/img/kim.jpeg" width="100%" class="object-fit-cover">
         </div>
     </div>
 </nav>
