@@ -22,9 +22,9 @@
 <body class="poppins-regular">
     <?php include 'app/partials/nav.php'; ?>
 
-    <div class="mt-5">
+    <div class="mt-4">
         <div class="container-fluid px-lg-5">
-            <a href="index.php">
+            <a href="/blog/">
                 <button class="mb-3 btn rounded-0 border-0">
                     <i class="fa fa-arrow-left"></i>
                     Back
@@ -33,7 +33,7 @@
             <div class="row">
 
                 <!-- Blogs column -->
-                <div class="col-12">
+                <div class="col-lg-9">
 
                     <!-- blog cards -->
                     <div class="row">
@@ -46,10 +46,13 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body p-md-0">
-                                            <p class="mb-3 fs-8 poppins-bold opacity-50 text-uppercase">
-                                                <a href="">Jasfer Monton</a> | apr 24, 2025
+                                            <p class="mb-3 fs-8 poppins-bold text-uppercase">
+                                                <a href="">Jasfer Monton</a> | 
+                                                <span class="opacity-75">
+                                                apr 24, 2025
+                                                </span>
                                             </p>
-                                            <h3 class="card-title link-underline-primary text-decoration-none fs-3 fw-bold text-gray-100">
+                                            <h3 class="card-title link-underline-primary text-decoration-none fs-3 fw-bold text-gray-20">
                                                 CAN I LAY BY YOUR SIDE? AND MAKE SURE YOU'RE ALRIGHT
                                             </h3>
                                             <p class="card-text poppins-regular fs-7 text-indent text-start" style="white-space: pre-line;">
@@ -67,6 +70,43 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Comments -->
+                <div class="col-lg-3">
+                    <div class="card rounded-0 border-0 bg-body-tertiary">
+                        <div class="card-header fw-bold">
+                            <span class="text-gray-100">
+                                19
+                            </span>
+                            <span class="fs-7">
+                                comments
+                            </span>
+                        </div>
+                        <div class="card-body">
+
+                            <!-- Comments -->
+                            <div class="card border-b rounded-0">
+                                <div class="card-header text-uppercase poppins-bold fs-8">
+                                    <a href="">
+                                        Jasfer Monton
+                                    </a>
+                                    <span class="text-lowercase poppins-regular fst-italic">says,</span>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text fs-7">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat accusamus officia tempore voluptatum sed recusandae voluptas aut temporibus illum suscipit?
+                                    </p>
+                                    <p class="card-text poppins-bold fs-8 text-uppercase text-end text-gray-100">apr 24, 2004
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <?= !isset($_SESSION['user_id']) ?  "<a href='' class='fs-7'>Login to comment</a>" : "" ?>
                         </div>
                     </div>
                 </div>

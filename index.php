@@ -36,12 +36,12 @@
                                 <div class="row">
                                     <div class="col-md-4 d-flex align-items-center justify-content-center"
                                         style="overflow: hidden; max-height: 22rem;">
-                                        <img src="https://placehold.co/400" alt="" class="rounded-0 object-fit-cover w-100 h-100">
+                                        <img src="app/assets/img/kim.jpeg" alt="" class="rounded-0 object-fit-cover w-100 h-100">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body h-100">
                                             <h3>
-                                                <a href="#" class="card-title link-underline-primary text-decoration-none fs-4 fw-bold text-gray-100">
+                                                <a href="#" class="card-title link-underline-primary text-decoration-none fs-4 fw-bold text-gray-90">
                                                     CAN I LAY BY YOUR SIDE? AND MAKE SURE YOU'RE ALRIGHT
                                                 </a>
                                             </h3>
@@ -51,7 +51,7 @@
                                                 suscipit dignissimos officiis, praesentium perferendis ipsa itaque
                                                 repellendus pariatur? Corporis, ratione.
                                             </p>
-                                            <p class="card-text fs-8 poppins-bold opacity-50 text-uppercase">
+                                            <p class="card-text fs-8 poppins-bold text-gray-100 text-uppercase">
                                                 jasfer monton | apr 24, 2025
                                             </p>
                                             <a href="post.php">
