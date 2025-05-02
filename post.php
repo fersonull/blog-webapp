@@ -52,12 +52,16 @@
                                                 apr 24, 2025
                                                 </span>
                                             </p>
-                                            <h3 class="card-title link-underline-primary text-decoration-none fs-3 fw-bold text-gray-20">
-                                                CAN I LAY BY YOUR SIDE? AND MAKE SURE YOU'RE ALRIGHT
-                                            </h3>
-                                            <p class="card-text poppins-regular fs-7 text-indent text-start" style="white-space: pre-line;">
-                                               Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                               Eligendi voluptatem adipisci cupiditate sint velit ex consectetur? Recusandae maxime eos dignissimos numquam, officia veritatis? Dolorum veniam, debitis velit hic accusamus libero repudiandae totam expedita blanditiis porro adipisci excepturi eaque ipsam. Obcaecati ratione, ut laboriosam dolores pariatur ad nemo eum, alias, natus repudiandae quam vero placeat officia quia nihil cupiditate doloribus molestiae debitis vel asperiores iste architecto dolor? Quidem quae quisquam voluptas aperiam? Voluptatem vero nisi mollitia, sint non atque. 
+                                            <div>
+                                                <h3 class="card-title link-underline-primary text-decoration-none fs-3 fw-bold text-gray-20">
+                                                    CAN I LAY BY YOUR SIDE? AND MAKE SURE YOU'RE ALRIGHT
+                                                </h3>
+                                                <p class="card-text fs-8 text-gray-100">
+                                                    A letter for my pretty gf, Kimberly.
+                                                </p>
+                                            </div>
+                                            <p class="card-text poppins-regular fs-7 text-start" style="white-space: pre-line;">
+                                               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptatem adipisci cupiditate sint velit ex consectetur? Recusandae maxime eos dignissimos numquam, officia veritatis? Dolorum veniam, debitis velit hic accusamus libero repudiandae totam expedita blanditiis porro adipisci excepturi eaque ipsam. Obcaecati ratione, ut laboriosam dolores pariatur ad nemo eum, alias, natus repudiandae quam vero placeat officia quia nihil cupiditate doloribus molestiae debitis vel asperiores iste architecto dolor? Quidem quae quisquam voluptas aperiam? Voluptatem vero nisi mollitia, sint non atque. 
                                                
                                                Nemo, voluptate quisquam enim vero temporibus error commodi repellendus iure, iste porro sint nihil quo corporis culpa aliquam dolorum corrupti minus dolorem aliquid similique vel inventore. Corrupti asperiores ipsam tempore ipsum illo, incidunt modi ullam rerum alias officia laudantium voluptate quo consequuntur quos at adipisci deserunt cumque! Inventore eum beatae repudiandae repellat dignissimos optio quam explicabo et! Numquam voluptates error dicta. A, necessitatibus quo dolore nihil, voluptate unde tenetur corporis eum neque perferendis impedit optio architecto reiciendis iure sunt itaque quas minus consectetur inventore quis veniam nemo consequatur. Omnis optio, neque sed, ex nesciunt dolorum voluptas deserunt ea voluptate reiciendis eaque sapiente repudiandae quae adipisci voluptatum molestiae sunt voluptates ipsa quam incidunt mollitia aut. Minus, temporibus. Laboriosam dicta quibusdam qui unde sint.
                                             </p>

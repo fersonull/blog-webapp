@@ -40,11 +40,16 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body h-100">
-                                            <h3>
-                                                <a href="#" class="card-title link-underline-primary text-decoration-none fs-4 fw-bold text-gray-90">
-                                                    CAN I LAY BY YOUR SIDE? AND MAKE SURE YOU'RE ALRIGHT
-                                                </a>
-                                            </h3>
+                                            <div class="mb-3">
+                                                <h3 class="mb-2">
+                                                    <a href="#" class="card-title link-underline-primary text-decoration-none fs-4 fw-bold text-gray-90">
+                                                        CAN I LAY BY YOUR SIDE? AND MAKE SURE YOU'RE ALRIGHT
+                                                    </a>
+                                                </h3>
+                                                <p class="text-gray-100 fs-8">
+                                                    A letter for my pretty gf, Kimberly.
+                                                </p>
+                                            </div>
                                             <p class="card-text poppins-light fs-7">
                                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore cumque
                                                 deserunt nulla laborum omnis assumenda autem, maiores temporibus rerum
