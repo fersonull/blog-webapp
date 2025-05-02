@@ -56,7 +56,7 @@
                                                 <h3 class="card-title link-underline-primary text-decoration-none fs-3 fw-bold text-gray-20">
                                                     CAN I LAY BY YOUR SIDE? AND MAKE SURE YOU'RE ALRIGHT
                                                 </h3>
-                                                <p class="card-text fs-8 text-gray-100">
+                                                <p class="card-text fs-8 text-gray-20 fst-italic">
                                                     A letter for my pretty gf, Kimberly.
                                                 </p>
                                             </div>

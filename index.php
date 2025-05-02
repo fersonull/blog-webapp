@@ -46,7 +46,7 @@
                                                         CAN I LAY BY YOUR SIDE? AND MAKE SURE YOU'RE ALRIGHT
                                                     </a>
                                                 </h3>
-                                                <p class="text-gray-100 fs-8">
+                                                <p class="text-gray-20 fst-italic fs-8">
                                                     A letter for my pretty gf, Kimberly.
                                                 </p>
                                             </div>
