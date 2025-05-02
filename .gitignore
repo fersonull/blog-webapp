@@ -1,1 +1,39 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Composer
 /vendor/
+/composer.lock
+
+# Node (if used)
+node_modules/
+
+# Environment and config files
+.env
+*.env
+
+# Cache, logs, and temp files
+*.log
+*.cache
+*.tmp
+
+# PHP-specific
+*.swp
+*.bak
+*.sql
+*.sqlite
+
+# PHPUnit
+phpunit.xml
+phpunit.result.cache
+
+# Other
+*.zip
+*.tar.gz
