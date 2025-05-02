@@ -64,4 +64,19 @@ class PostService
             echo "Something went wrong: " . $err->getMessage();
         }
     }
+
+    public function getUserPosts($id)
+    {
+        try {
+            $query = "SELECT * from posts_tb AS post JOIN users_tb AS users WHERE users.user_id = :user_id";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->execute([':user_id' => $id]);
+
+            return $stmt->fetchAll();
+        } catch (\PDOException $err) {
+            echo "Something went wrong: " . $err->getMessage();
+        }
+    }
 }
