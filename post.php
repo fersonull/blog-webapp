@@ -22,6 +22,16 @@
 <body class="poppins-regular">
     <?php include 'app/partials/nav.php'; ?>
 
+    <?php
+    require __DIR__ . '/vendor/autoload.php';
+
+    use App\Classes\PostService;
+
+    $postController = new PostService;
+
+    $result = $postController->getPostByID(id: $_GET['pid']);
+    ?>
+
     <div class="mt-4">
         <div class="container-fluid px-lg-5">
             <a href="/blog/">
@@ -37,44 +47,45 @@
 
                     <!-- blog cards -->
                     <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="card border-0 rounded-0" style="overflow: hidden;">
-                                <div class="row">
-                                    <div class="col-md-4 d-flex align-items-center justify-content-center"
-                                        style="overflow: hidden; max-height: 22rem;">
-                                        <img src="app/assets/img/kim.jpeg" alt="" class="rounded-0 object-fit-cover w-100 h-100">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body p-md-0">
-                                            <p class="mb-3 fs-8 poppins-bold text-uppercase">
-                                                <a href="">Jasfer Monton</a> | 
-                                                <span class="opacity-75">
-                                                apr 24, 2025
-                                                </span>
-                                            </p>
-                                            <div>
-                                                <h3 class="card-title link-underline-primary text-decoration-none fs-3 fw-bold text-gray-20">
-                                                    IF A MAN COULD BE TWO PLACES AT ONE TIME, I'D BE WITH YOU.
-                                                </h3>
-                                                <p class="card-text fs-8 text-gray-20 fst-italic">
-                                                   There's no one home but you.
+                        <?php foreach ($result as $post): ?>
+                            <div class="col-12 mb-4">
+                                <div class="card border-0 rounded-0" style="overflow: hidden;">
+                                    <div class="row">
+                                        <div class="col-md-4 d-flex align-items-center justify-content-center"
+                                            style="overflow: hidden; max-height: 22rem;">
+                                            <img src="app/assets/img/kim.jpeg" alt="" class="rounded-0 object-fit-cover w-100 h-100">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body p-md-0">
+                                                <p class="mb-3 fs-8 poppins-bold text-uppercase">
+                                                    <a href=""><?= $post['username'] ?></a> | 
+                                                    <span class="opacity-75">
+                                                        <?= $post['date_created'] ?>
+                                                    </span>
                                                 </p>
-                                            </div>
-                                            <p class="card-text poppins-regular fs-7 text-start" style="white-space: pre-line;">
-                                               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptatem adipisci cupiditate sint velit ex consectetur? Recusandae maxime eos dignissimos numquam, officia veritatis? Dolorum veniam, debitis velit hic accusamus libero repudiandae totam expedita blanditiis porro adipisci excepturi eaque ipsam. Obcaecati ratione, ut laboriosam dolores pariatur ad nemo eum, alias, natus repudiandae quam vero placeat officia quia nihil cupiditate doloribus molestiae debitis vel asperiores iste architecto dolor? Quidem quae quisquam voluptas aperiam? Voluptatem vero nisi mollitia, sint non atque. 
-                                               
-                                               Nemo, voluptate quisquam enim vero temporibus error commodi repellendus iure, iste porro sint nihil quo corporis culpa aliquam dolorum corrupti minus dolorem aliquid similique vel inventore. Corrupti asperiores ipsam tempore ipsum illo, incidunt modi ullam rerum alias officia laudantium voluptate quo consequuntur quos at adipisci deserunt cumque! Inventore eum beatae repudiandae repellat dignissimos optio quam explicabo et! Numquam voluptates error dicta. A, necessitatibus quo dolore nihil, voluptate unde tenetur corporis eum neque perferendis impedit optio architecto reiciendis iure sunt itaque quas minus consectetur inventore quis veniam nemo consequatur. Omnis optio, neque sed, ex nesciunt dolorum voluptas deserunt ea voluptate reiciendis eaque sapiente repudiandae quae adipisci voluptatum molestiae sunt voluptates ipsa quam incidunt mollitia aut. Minus, temporibus. Laboriosam dicta quibusdam qui unde sint.
-                                            </p>
+                                                <div>
+                                                    <h3 class="card-title link-underline-primary text-decoration-none fs-3 fw-bold text-gray-20">
+                                                        <?= $post['title'] ?>
+                                                    </h3>
+                                                    <p class="card-text fs-8 text-gray-20 fst-italic">
+                                                        <?= $post['subtitle'] ?>
+                                                    </p>
+                                                </div>
+                                                <p class="card-text poppins-regular fs-7 text-start" style="white-space: pre-line;">
+                                                    <?= $post['content'] ?>
+                                                </p>
 
-                                            <div class="d-flex gap-2 mt-4 fs-8">
-                                                <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">#pet</a>
-                                                <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">#cute</a>
+                                                <div class="d-flex gap-2 mt-4 fs-8">
+                                                    <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
+                                                        <?= $post['tags'] ?>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
 
                 </div>
