@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/blog/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Features</a>
@@ -22,7 +22,7 @@
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
                 <li class="nav-item d-md-none">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link" href="profile.php">Profile</a>
                 </li>
                 <form class="d-flex mt-2 d-md-none" role="search">
                     <input class="form-control shadow-none rounded-0 me-2" type="search" placeholder="Search" aria-label="Search">
@@ -33,8 +33,8 @@
             </ul>
         </div>
 
-        <div class="bg-secondary bg-primary rounded-circle d-none d-md-block overflow-hidden" style="width: 2.5rem; height: 2.5rem;">
+        <a href="profile.php" class="bg-secondary bg-primary rounded-circle d-none d-md-block overflow-hidden" style="width: 2.5rem; height: 2.5rem;">
             <img src="app/assets/img/kim.jpeg" width="100%" class="object-fit-cover">
-        </div>
+        </a>
     </div>
 </nav>
