@@ -54,10 +54,10 @@
                                             </p>
                                             <div>
                                                 <h3 class="card-title link-underline-primary text-decoration-none fs-3 fw-bold text-gray-20">
-                                                    CAN I LAY BY YOUR SIDE? AND MAKE SURE YOU'RE ALRIGHT
+                                                    IF A MAN COULD BE TWO PLACES AT ONE TIME, I'D BE WITH YOU.
                                                 </h3>
                                                 <p class="card-text fs-8 text-gray-20 fst-italic">
-                                                    A letter for my pretty gf, Kimberly.
+                                                   There's no one home but you.
                                                 </p>
                                             </div>
                                             <p class="card-text poppins-regular fs-7 text-start" style="white-space: pre-line;">
@@ -104,7 +104,7 @@
                                     <p class="card-text fs-7">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat accusamus officia tempore voluptatum sed recusandae voluptas aut temporibus illum suscipit?
                                     </p>
-                                    <p class="card-text poppins-bold fs-8 text-uppercase text-end text-gray-100">apr 24, 2004
+                                    <p class="card-text poppins-bold fs-8 text-uppercase text-end text-gray-100">apr 24, 2004 | 12:23</p>
                                 </div>
                                 
                             </div>
