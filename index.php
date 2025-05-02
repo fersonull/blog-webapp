@@ -62,7 +62,7 @@
                                                     </p>
                                                 </div>
                                                 <p class="card-text poppins-light fs-7">
-                                                    <?= substr($data['content'], 0, 200) ?>...
+                                                    <?= substr($data['content'], 0, 190) ?>...
                                                 </p>
                                                 <p class="card-text fs-8 poppins-bold text-gray-100 text-uppercase">
                                                 <?= $data['username']; ?> | <?= $data['date_created'] ?>

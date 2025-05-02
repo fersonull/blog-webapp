@@ -29,7 +29,9 @@
 
     $postController = new PostService;
 
-    $result = $postController->getPostByID(id: $_GET['pid']);
+    $post_id = $_GET['pid'];
+
+    $result = $postController->getPostByID(id: $post_id);
     ?>
 
     <div class="mt-4">
@@ -47,45 +49,49 @@
 
                     <!-- blog cards -->
                     <div class="row">
-                        <?php foreach ($result as $post): ?>
-                            <div class="col-12 mb-4">
-                                <div class="card border-0 rounded-0" style="overflow: hidden;">
-                                    <div class="row">
-                                        <div class="col-md-4 d-flex align-items-center justify-content-center"
-                                            style="overflow: hidden; max-height: 22rem;">
-                                            <img src="app/assets/img/kim.jpeg" alt="" class="rounded-0 object-fit-cover w-100 h-100">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body p-md-0">
-                                                <p class="mb-3 fs-8 poppins-bold text-uppercase">
-                                                    <a href=""><?= $post['username'] ?></a> | 
-                                                    <span class="opacity-75">
-                                                        <?= $post['date_created'] ?>
-                                                    </span>
-                                                </p>
-                                                <div>
-                                                    <h3 class="card-title link-underline-primary text-decoration-none fs-3 fw-bold text-gray-20">
-                                                        <?= $post['title'] ?>
-                                                    </h3>
-                                                    <p class="card-text fs-8 text-gray-20 fst-italic">
-                                                        <?= $post['subtitle'] ?>
+                        <?php if (!$postController->postExist($post_id)): ?>
+                            <h3>No post found.</h3>
+                        <?php else: ?>
+                            <?php foreach ($result as $post): ?>
+                                <div class="col-12 mb-4">
+                                    <div class="card border-0 rounded-0" style="overflow: hidden;">
+                                        <div class="row">
+                                            <div class="col-md-4 d-flex align-items-center justify-content-center"
+                                                style="overflow: hidden; max-height: 22rem;">
+                                                <img src="app/assets/img/kim.jpeg" alt="" class="rounded-0 object-fit-cover w-100 h-100">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body p-md-0">
+                                                    <p class="mb-3 fs-8 poppins-bold text-uppercase">
+                                                        <a href=""><?= $post['username'] ?></a> | 
+                                                        <span class="opacity-75">
+                                                            <?= $post['date_created'] ?>
+                                                        </span>
                                                     </p>
-                                                </div>
-                                                <p class="card-text poppins-regular fs-7 text-start" style="white-space: pre-line;">
-                                                    <?= $post['content'] ?>
-                                                </p>
+                                                    <div>
+                                                        <h3 class="card-title link-underline-primary text-decoration-none fs-3 fw-bold text-gray-20">
+                                                            <?= $post['title'] ?>
+                                                        </h3>
+                                                        <p class="card-text fs-8 text-gray-20 fst-italic">
+                                                            <?= $post['subtitle'] ?>
+                                                        </p>
+                                                    </div>
+                                                    <p class="card-text poppins-regular fs-7 text-start" style="white-space: pre-line;">
+                                                        <?= $post['content'] ?>
+                                                    </p>
 
-                                                <div class="d-flex gap-2 mt-4 fs-8">
-                                                    <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
-                                                        <?= $post['tags'] ?>
-                                                    </a>
+                                                    <div class="d-flex gap-2 mt-4 fs-8">
+                                                        <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
+                                                            <?= $post['tags'] ?>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
 
                 </div>

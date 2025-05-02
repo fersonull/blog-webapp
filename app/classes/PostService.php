@@ -42,4 +42,26 @@ class PostService
             echo "Error fetching data: " . $err->getMessage();
         }
     }
+
+    public function postExist($post_id)
+    {
+        try {
+            $query = "SELECT * from posts_tb";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->execute();
+
+            $result = $stmt->fetchAll();
+
+            foreach ($result as $post) {
+                if ($post['post_id'] === (int) $post_id) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (\PDOException $err) {
+            echo "Something went wrong: " . $err->getMessage();
+        }
+    }
 }
