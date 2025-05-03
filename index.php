@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<title>Blog</title>
 <?php require 'app/partials/head.php' ?>
 
 <body class="poppins-regular">
@@ -27,11 +27,11 @@
                     <div class="row">
                         <?php foreach ($result as $data): ?>
                             <div class="col-12 mb-4">
-                                <div class="card bg-body-tertiary border-0 rounded-0" style="overflow: hidden;">
+                                <div class="card border-0 rounded-0" style="overflow: hidden;">
                                     <div class="row">
                                         <div class="col-md-4 d-flex align-items-center justify-content-center"
-                                            style="overflow: hidden; max-height: 21.4rem;">
-                                            <img src="app/assets/img/kim.jpeg" alt="" class="rounded-0 object-fit-cover w-100 h-100">
+                                            style="overflow: hidden; max-height: 21.4rem; min-height: 20rem;">
+                                            <img src="app/assets/img/kim.jpeg" alt="blog-img" class="rounded-0 object-fit-cover w-100 h-100">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body h-100">
@@ -49,10 +49,12 @@
                                                     <?= substr($data['content'], 0, 190) ?>...
                                                 </p>
                                                 <p class="card-text fs-8 poppins-bold text-gray-100 text-uppercase">
-                                                <?= $data['username']; ?> | <?= $data['date_created'] ?>
+                                                    <?= $data['username']; ?> | <?= $data['date_created'] ?>
                                                 </p>
                                                 <a href="post.php?pid=<?= $data['post_id']; ?>">
-                                                    <button class="btn btn-outline-primary rounded-0 fs-7">Read more</button>
+                                                    <button class="btn btn-outline-primary rounded-0 fs-7">
+                                                        Read more
+                                                    </button>
                                                 </a>
 
                                                 <div class="d-flex gap-2 mt-4 fs-8">
