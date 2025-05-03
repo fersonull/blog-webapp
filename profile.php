@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">    
+<html lang="en">   
+<title>Blog</title>
 <?php require 'app/partials/head.php' ?>
 <body class="poppins-regular">
-    <?php require_once 'app/partials/nav.php' ?> 
-
     <?php
+    require_once 'app/partials/nav.php';
+
     require __DIR__ . '/vendor/autoload.php';
 
     use App\Classes\PostService;
@@ -19,7 +20,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card rounded border-2 border-primary bg-body-tertiary">
-                        <img src="https://placehold.co/400" alt="" class="card-img-top">
+                        <!-- <img src="https://placehold.co/400" alt="" class="card-img-top"> -->
                         <div class="card-body">
                             <h3 class="card-title text-gray-100 poppins-bold">
                                 Profile here
