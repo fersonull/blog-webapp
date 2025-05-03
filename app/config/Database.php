@@ -9,7 +9,7 @@ class Database {
     private $password = '';
     private $conn;
 
-    public function connect()
+    protected function connect()
     {
         $this->conn = null;
 

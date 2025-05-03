@@ -3,14 +3,13 @@
 namespace App\Classes;
 use App\Config\Database;
 
-class PostService 
+class PostService extends Database
 {
     private $conn;
 
     public function __construct()
     {
-        $db = new Database;
-        $this->conn = $db->connect();
+        $this->conn = $this->connect();
     }
 
     public function fetchAllPosts()
