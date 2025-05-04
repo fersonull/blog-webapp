@@ -33,7 +33,7 @@
             </ul>
         </div>
 
-        <?php if (isset($_SESSION['user_id'])): ?>
+        <?php if (isset($_SESSION['userData'][0]['user_id'])): ?>
             <a href="profile.php" class="bg-secondary bg-primary rounded-circle d-none d-md-block overflow-hidden" style="width: 2.5rem; height: 2.5rem;">
                 <img src="app/assets/img/kim.jpeg" width="100%" class="object-fit-cover">
             </a>    

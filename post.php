@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php require 'app/partials/head.php' ?>
@@ -109,7 +113,7 @@
                             </div>
                         </div>
                         <div class="card-footer text-center">
-                            <?= !isset($_SESSION['user_id']) ?  "<a href='' class='fs-7'>Login to comment</a>" : "" ?>
+                            <?= !isset($_SESSION['userData'][0]['user_id']) ?  "<a href='' class='fs-7'>Login to comment</a>" : "" ?>
                         </div>
                     </div>
                 </div>

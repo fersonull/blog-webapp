@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">   
 <title>Blog</title>
@@ -12,7 +16,7 @@
 
     $postController = new PostService;
 
-    $result = $postController->getUserPosts(10000);
+    $result = $postController->getUserPosts($_SESSION['userData'][0]['user_id']);
     ?>
 
     <div class="mt-5">

@@ -5,7 +5,7 @@ use App\Config\Database;
 
 class PostService extends Database
 {
-    private $conn;
+    protected $conn;
 
     public function __construct()
     {

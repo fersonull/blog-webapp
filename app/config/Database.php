@@ -26,22 +26,22 @@ class Database
         } catch (\PDOException $err) {
             echo "Error connecting: " . $err->getMessage();
         }
-     }
-
-    protected function userExists($username, $password)
-    {
-        try {
-            $query = "SELECT * FROM users_tb WHERE username = :username AND password = :password";
-
-            $stmt = $this->conn->prepare($query);
-
-            $stmt->execute([':username' => $username, ':password' => $password]);
-
-            $result = $stmt->fetchAll();
-
-            return count($result);
-        } catch (\PDOException $err) {
-            echo "Error: " . $err->getMessage() ;
-        }
     }
+
+    // protected function userExists($username, $password)
+    // {
+    //     try {
+    //         $query = "SELECT * FROM users_tb WHERE username = :username AND password = :password";
+
+    //         $stmt = $this->conn->prepare($query);
+
+    //         $stmt->execute([':username' => $username, ':password' => $password]);
+
+    //         $result = $stmt->fetchAll();
+
+    //         return count($result);
+    //     } catch (\PDOException $err) {
+    //         echo "Error: " . $err->getMessage() ;
+    //     }
+    // }
  }

@@ -2,27 +2,23 @@
 
 namespace App\Classes;
 use App\Config\Database;
-// use App\Classes\User;
+use App\Classes\User;
 use App\Helper\Helper;
 
-class AuthUser extends Database
+class AuthUser extends User
 {
-    private $conn;
-
-    public function __construct()
-    {
-        $this->conn = $this->connect();
-    }
+    
 
     public function login($cred)
     {
-        // if (!Helper::validateLoginForm($cred)) {
-        //     return false;
-        // }
 
-        if (!$this->userExists($cred['username'], $cred['password']) > 0) {
+        $userData = $this->userExists($cred['username'], $cred['password']);
+
+        if (!count($userData) > 0) {
             return false;
         }
+
+        Helper::storeUserToSession($userData);
 
         return true;
     }

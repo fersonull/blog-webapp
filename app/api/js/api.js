@@ -12,9 +12,7 @@ form.addEventListener('submit', async (e) => {
 
     const data = await response.json();
 
-    console.log(data)
-
-    if (data.message !== 'success') {
+    if (data.status === 'error') {
         Swal.fire({
             toast: true,
             title: '<p class="text-warning m-0">Oops!</p>',
@@ -25,7 +23,21 @@ form.addEventListener('submit', async (e) => {
             position: 'top-end',
             showConfirmButton: false,
         })
-    }
 
+        return;
+    }
+    
+    Swal.fire({
+        toast: true,
+        title: '<p class="text-success m-0">Success!</p>',
+        width: '22rem',
+        timer: 1500,
+        timerProgressBar: true,
+        html: '<p class="m-0 fs-7">' + data.message +'</p>',
+        position: 'top-end',
+        showConfirmButton: false,
+    }).then(() => {
+        window.location.href = '/blog/';
+    })
 
 })
