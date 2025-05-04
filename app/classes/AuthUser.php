@@ -1,14 +1,11 @@
 <?php
 
 namespace App\Classes;
-use App\Config\Database;
 use App\Classes\User;
 use App\Helper\Helper;
 
 class AuthUser extends User
 {
-    
-
     public function login($cred)
     {
 

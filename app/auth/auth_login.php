@@ -2,7 +2,6 @@
 
 require __DIR__ . '/../../vendor/autoload.php';
 use App\Classes\AuthUser;
-use App\Helper\Helper;
 
 $auth = new AuthUser;
 
