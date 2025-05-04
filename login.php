@@ -6,35 +6,19 @@
 </head>
 <body class="poppins-regular">
 
-    <?php if (isset($ok) && !$ok): ?>
-        <script>
-            let timerInterval;
+    <?php if (isset($err) && $err): ?> 
+        <!-- <script>
             Swal.fire({
-                title: '<p class="text-primary m-0">Alwrite</p>',
-                html: '<p class=" m-0">Please fill all required fields</p>',
-                timer: 2000,
-                timerProgressBar: true,
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                customClass: {
-                    toast: 'swal-rounded-0'
-                },
-                didOpen: () => {
-                    const timer = Swal.getPopup().querySelector("b");
-                    timerInterval = setInterval(() => {
-                    timer.textContent = `${Swal.getTimerLeft()}`;
-                    }, 100);
-                },
-                willClose: () => {
-                    clearInterval(timerInterval);
-                }
-            }).then((result) => {
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log("I was closed by the timer");
-                }
-            });
-        </script>
+            toast: true,
+            title: '<p class="text-warning m-0">Oops!</p>',
+            width: '22rem',
+            timer: 2000,
+            timerProgressBar: true,
+            html: '<p class="m-0 fs-7">' + data.message +'</p>',
+            position: 'top-end',
+            showConfirmButton: false,
+        })
+        </script> -->
     <?php endif; ?>
     
     <main class="vh-100 d-flex align-items-center justify-content-center">
@@ -53,14 +37,17 @@
                 <p class="poppins-bold fs-4 m-0">Sign in to your account</p>
                 <p class="text-decoration-none m-0">Or <a href="" class="text-decoration-none">create a new account</a></p>
             </div>
-            <form action="/blog/app/auth/auth_login.php" method="POST" class="">
+
+            <form method="POST" id="loginForm">
                 <div class="mb-4">
                     <label for="" class="form-label poppins-bold fs-7 text-uppercase">Username</label>
                     <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your username" name="username">
+                    <div class="form-text text-end text-danger <?= (isset($validUsername) && !$validUsername) ? 'd-md-block' : 'd-none' ?>">Username is required.</div>
                 </div>
                 <div class="mb-4">
                     <label for="" class="form-label poppins-bold fs-7 text-uppercase">Password</label>
-                    <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your pasword" name="password">
+                    <input type="password" class="form-control rounded-0 w-md-full" placeholder="Enter your pasword" name="password">
+                    <div class="form-text text-end text-danger <?= (isset($validPass) && !$validPass) ? 'd-md-block' : 'd-none' ?>">Password is required.</div>
                 </div>
                 <div class="mb-4">
                     <div class="row">
@@ -70,17 +57,17 @@
                                 <label for="remember" class="form-check-label fs-8 user-select-none">Remember me</label>
                             </div>
                         </div>
-                        <div class="col-6 text-md-end text-center d-flex">
+                        <div class="col-6 text-md-end justify-content-end text-center d-flex">
                             <a href="" class="fs-8">Forgot password</a>
                         </div>
                     </div>
                 </div>
-                <button type="submit" name="login" class="btn btn-primary rounded-0 form-control mb-2">Sign in</button>
+                <button type="submit" class="btn btn-primary rounded-0 form-control mb-2">Sign in</button>
                 <!-- <a href="#" class="form-control btn text-decoration-none border-0 btn-outline-secondary">Cancel</a> -->
             </form>
         </div>
 
-        
+        <script src="/blog/app/api/js/api.js"></script>
     </main>
 </body>
 </html>

@@ -2,6 +2,8 @@
 
 namespace App\Classes;
 use App\Config\Database;
+// use App\Classes\User;
+use App\Helper\Helper;
 
 class AuthUser extends Database
 {
@@ -14,12 +16,14 @@ class AuthUser extends Database
 
     public function login($cred)
     {
-        if ($this->userExists($cred['username'], $cred['password']) > 0) {
-            // TODO: form validation logic here
+        // if (!Helper::validateLoginForm($cred)) {
+        //     return false;
+        // }
 
-            return true;
+        if (!$this->userExists($cred['username'], $cred['password']) > 0) {
+            return false;
         }
 
-        return false;
+        return true;
     }
 }
