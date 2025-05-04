@@ -33,7 +33,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
                 <p class="text-decoration-none m-0">Or <a href="/blog/login.php" class="text-decoration-none">sign in with your account</a></p>
             </div>
 
-            <form method="POST" id="loginForm">
+            <form method="POST" id="signupForm">
                 <!-- <div class="row">
                     <div class="col-md-6">
                         <div class="mb-4">
@@ -50,11 +50,11 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
                 </div> -->
                 <div class="mb-4">
                     <label for="" class="form-label poppins-bold fs-7 text-uppercase">First name</label>
-                    <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your first name" name="username">
+                    <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your first name" name="firstname">
                 </div>
                 <div class="mb-4">
                     <label for="" class="form-label poppins-bold fs-7 text-uppercase">Last name</label>
-                    <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your last name" name="username">
+                    <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your last name" name="lastname">
                 </div>
                 <div class="mb-4">
                     <label for="" class="form-label poppins-bold fs-7 text-uppercase">Username</label>
@@ -82,7 +82,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
             </form>
         </div>
 
-        <script src="/blog/app/api/js/api.js"></script>
+        <script src="/blog/app/api/js/signup.js"></script>
     </main>
 </body>
 </html>

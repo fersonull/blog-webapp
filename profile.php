@@ -103,7 +103,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
 
 
                         <?php if (count($result) > 0): ?>
-                            <?php foreach ($result as $post): ?>
+                            <?php // foreach ($result as $post): ?>
                                 <!-- <div class="col-12 col-lg-4 mb-3">
                                     <div class="card rounded-0 border-0 shadow-sm">
                                         <div class="card-body">
@@ -124,7 +124,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                                         </div>
                                     </div>
                                 </div> -->
-                            <?php endforeach; ?>
+                            <?php //endforeach; ?>
                         <?php else: ?>
                             <h3>No post yet</h3>
                         <?php endif; ?>

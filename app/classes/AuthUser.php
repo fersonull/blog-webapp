@@ -19,4 +19,8 @@ class AuthUser extends User
 
         return true;
     }
+
+    public function register($cred) {
+        
+    }
 }

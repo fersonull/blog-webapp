@@ -62,7 +62,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
             </form>
         </div>
 
-        <script src="/blog/app/api/js/api.js"></script>
+        <script src="/blog/app/api/js/login.js"></script>
     </main>
 </body>
 </html>
