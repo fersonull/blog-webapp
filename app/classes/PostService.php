@@ -15,7 +15,7 @@ class PostService extends Database
     public function fetchAllPosts()
     {
         try {
-            $query = "SELECT * FROM posts_tb JOIN users_tb";
+            $query = "SELECT * FROM posts_tb JOIN users_tb WHERE users_tb.user_id = posts_tb.user_id";
 
             $stmt = $this->conn->prepare($query);
 
@@ -36,7 +36,7 @@ class PostService extends Database
 
             $stmt->execute([':post_id' => $id]);
 
-            return $stmt->fetchAll();
+            return $stmt->fetch();
         } catch (\PDOException $err) {
             echo "Error fetching data: " . $err->getMessage();
         }
@@ -67,7 +67,7 @@ class PostService extends Database
     public function getUserPosts($id)
     {
         try {
-            $query = "SELECT * from posts_tb AS post JOIN users_tb AS users WHERE users.user_id = :user_id";
+            $query = "SELECT * from posts_tb AS post JOIN users_tb AS users WHERE users.user_id = post.user_id AND users.user_id = :user_id";
 
             $stmt = $this->conn->prepare($query);
 

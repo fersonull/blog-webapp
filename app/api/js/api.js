@@ -15,7 +15,7 @@ form.addEventListener('submit', async (e) => {
     if (data.status === 'error') {
         Swal.fire({
             toast: true,
-            title: '<p class="text-warning m-0">Oops!</p>',
+            title: '<p class="text-primary m-0">Oops!</p>',
             width: '22rem',
             timer: 2000,
             timerProgressBar: true,
