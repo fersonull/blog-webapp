@@ -1,3 +1,9 @@
+<?php
+function isActive($url) {
+    return $url === parse_url($_SERVER['REQUEST_URI'])['path'];
+}
+?>
+
 <nav class="navbar navbar-expand-md bg-body-tertiary sticky-top">
     <div class="container-fluid p-3 px-lg-5">
         <!-- <div class="p-3 bg-secondary rounded-circle d-md-none">
@@ -12,17 +18,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/blog/">Home</a>
+                <li class="nav-item poppins-semibold">
+                    <a class="nav-link d-flex align-items-center justidy-content-center <?= isActive("/blog/") ? 'text-primary' : 'text-gray-100'?>" aria-current="page" href="/blog/">
+                        <i class="fas fa-home fs-7 me-1 d-md-none"></i>
+                        Home
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item d-md-none">
-                    <a class="nav-link" href="profile.php">Profile</a>
+                <li class="nav-item poppins-semibold">
+                    <a class="nav-link d-flex align-items-center justidy-content-center <?= isActive("/blog/profile.php") ? 'text-primary' : 'text-gray-100'?>" aria-current="page" href="/blog/profile.php">
+                        <i class="fas fa-user fs-7 me-1 d-md-none"></i>
+                        Profile
+                    </a>
                 </li>
                 <form class="d-flex mt-2 d-md-none" role="search">
                     <input class="form-control shadow-none rounded-0 me-2" type="search" placeholder="Search" aria-label="Search">
