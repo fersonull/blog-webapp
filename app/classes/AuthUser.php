@@ -21,6 +21,12 @@ class AuthUser extends User
     }
 
     public function register($cred) {
-        
+        $userData = $this->userExists($cred['username'], $cred['password']);
+
+        if (count($userData) > 0) {
+            return false;
+        }
+
+        $query = "INSERT INTO users_tb ";
     }
 }

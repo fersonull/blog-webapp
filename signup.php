@@ -34,20 +34,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
             </div>
 
             <form method="POST" id="signupForm">
-                <!-- <div class="row">
-                    <div class="col-md-6">
-                        <div class="mb-4">
-                            <label for="" class="form-label poppins-bold fs-7 text-uppercase">First name</label>
-                            <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your username" name="username">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="mb-4">
-                            <label for="" class="form-label poppins-bold fs-7 text-uppercase">Last name</label>
-                            <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your username" name="username">
-                        </div>
-                    </div>
-                </div> -->
+                
                 <div class="mb-4">
                     <label for="" class="form-label poppins-bold fs-7 text-uppercase">First name</label>
                     <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your first name" name="firstname">

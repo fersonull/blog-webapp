@@ -8,23 +8,64 @@ class Helper
     public static function validateLoginForm($POST, callable $callback)
     {
     
-        if (empty($_POST['username']) && empty($_POST['password'])) {
+        if (empty($POST['username']) && empty($POST['password'])) {
             
             $callback('All required fields are empty.');
 
             return false;
         }
 
-        if (empty($_POST['username'])) {
+        if (empty($POST['username'])) {
             
             $callback('Username is required.');
 
             return false;
         }
 
-        if (empty($_POST['password'])) {
+        if (empty($POST['password'])) {
            
             $callback('Password is required.');
+
+            return false;
+        }
+
+        return true;
+    }
+
+    public static function validateRegForm($POST, callable $callback)
+    {
+    
+        if (empty($POST['username']) && empty($POST['password']) && empty($POST['firstname']) && empty($POST['lastname'])) {
+            
+            $callback('All required fields are empty.');
+
+            return false;
+        }
+
+        if (empty($POST['username'])) {
+            
+            $callback('Username is required.');
+
+            return false;
+        }
+
+        if (empty($POST['password'])) {
+           
+            $callback('Password is required.');
+
+            return false;
+        }
+
+        if (empty($POST['firstname'])) {
+           
+            $callback('First name is required.');
+
+            return false;
+        }
+
+        if (empty($POST['lastname'])) {
+           
+            $callback('Last name is required.');
 
             return false;
         }
