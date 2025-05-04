@@ -29,20 +29,40 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
                 <p class="m-0 text-primary text-decoration-none poppins-bold fs-2">
                     Alwrite
                 </p>
-                <p class="poppins-bold fs-4 m-0">Sign in to your account</p>
-                <p class="text-decoration-none m-0">Or <a href="/blog/signup.php" class="text-decoration-none">create a new account</a></p>
+                <p class="poppins-bold fs-4 m-0">Create a new account</p>
+                <p class="text-decoration-none m-0">Or <a href="/blog/login.php" class="text-decoration-none">sign in with your account</a></p>
             </div>
 
             <form method="POST" id="loginForm">
+                <!-- <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label for="" class="form-label poppins-bold fs-7 text-uppercase">First name</label>
+                            <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your username" name="username">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label for="" class="form-label poppins-bold fs-7 text-uppercase">Last name</label>
+                            <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your username" name="username">
+                        </div>
+                    </div>
+                </div> -->
+                <div class="mb-4">
+                    <label for="" class="form-label poppins-bold fs-7 text-uppercase">First name</label>
+                    <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your first name" name="username">
+                </div>
+                <div class="mb-4">
+                    <label for="" class="form-label poppins-bold fs-7 text-uppercase">Last name</label>
+                    <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your last name" name="username">
+                </div>
                 <div class="mb-4">
                     <label for="" class="form-label poppins-bold fs-7 text-uppercase">Username</label>
                     <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your username" name="username">
-                    <div class="form-text text-end text-danger <?= (isset($validUsername) && !$validUsername) ? 'd-md-block' : 'd-none' ?>">Username is required.</div>
                 </div>
                 <div class="mb-4">
                     <label for="" class="form-label poppins-bold fs-7 text-uppercase">Password</label>
                     <input type="password" class="form-control rounded-0 w-md-full" placeholder="Enter your pasword" name="password">
-                    <div class="form-text text-end text-danger <?= (isset($validPass) && !$validPass) ? 'd-md-block' : 'd-none' ?>">Password is required.</div>
                 </div>
                 <div class="mb-4">
                     <div class="row">
