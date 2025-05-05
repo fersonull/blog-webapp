@@ -70,6 +70,38 @@ class Helper
             return false;
         }
 
+        if (!empty($POST['username'] && (strlen($POST['username']) < 6))) {
+
+            $callback('Username must atleast 6 characters.');
+
+            return false;
+        }
+
+        if (!empty($POST['password'] && (strlen($POST['password']) < 6))) {
+
+            $callback('Password must atleast 6 characters.');
+
+            return false;
+        }
+
+        if (!empty($POST['firstname'] && (strlen($POST['firstname']) < 3))) {
+
+            $callback('First name is invalid.');
+
+            return false;
+
+
+        }
+
+        if (!empty($POST['lastname'] && (strlen($POST['lastname']) < 3))) {
+
+            $callback('First name is invalid.');
+
+            return false;
+
+
+        }
+
         return true;
     }
 

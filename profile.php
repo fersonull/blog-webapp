@@ -76,7 +76,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                             </div>
                         </div> -->
 
-                        <ul class="nav nav-tabs px-2" id="myTab" role="tablist">
+                        <!-- <ul class="nav nav-tabs px-2" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active border-0 text-bg-primary" id="home-tab" data-bs-toggle="tab"
                                     data-bs-target="#home-tab-pane" type="button" role="tab"
@@ -98,7 +98,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                                 aria-labelledby="home-tab" tabindex="0">
                                 
                             </div>
-                        </div>
+                        </div> -->
 
 
 
