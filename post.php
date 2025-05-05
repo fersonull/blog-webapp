@@ -43,7 +43,7 @@ session_start();
                                     <div class="row">
                                         <div class="col-md-4 d-flex align-items-center justify-content-center"
                                             style="overflow: hidden; max-height: 22rem;">
-                                            <img src="app/assets/img/kim.jpeg" alt="" class="rounded-0 object-fit-cover w-100 h-100">
+                                            <img src="app/api/<?= $post['image'] ?>" alt="" class="rounded-0 object-fit-cover w-100 h-100">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body p-md-0">

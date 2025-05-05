@@ -78,4 +78,33 @@ class PostService extends Database
             echo "Something went wrong: " . $err->getMessage();
         }
     }
+
+    public function uploadPost($FILE, $POST, $userID)
+    {
+        try {
+            $img = $FILE['image']['tmp_name'];
+            $imgName = $FILE['image']['name'];
+
+            $imgPath = "uploads/" . basename($imgName);
+
+            if (!move_uploaded_file($img, $imgPath)) {
+                return;   
+            }
+
+            $query = "INSERT INTO posts_tb (image, title, subtitle, content, tags, user_id) VALUES (:image, :title, :sub, :content, :tags, :user_id)";
+
+            $stmt = $this->conn->prepare($query);
+
+            return $stmt->execute([
+                ':image' => $imgPath,
+                ':title' => $POST['title'],
+                ':sub' => $POST['subtitle'],
+                ':content' => $POST['content'],
+                ':tags' => '#sample',
+                ':user_id' => $userID
+            ]);
+        } catch (\PDOException $err) {
+            echo "error:" . $err->getMessage();
+        }
+    }
 }
