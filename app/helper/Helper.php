@@ -70,6 +70,20 @@ class Helper
             return false;
         }
 
+        if (!empty($POST['firstname'] && !preg_match("/^[A-Za-z]+$/", $POST['firstname']))) {
+
+            $callback('First name only allows letters.');
+
+            return false;
+        }
+
+        if (!empty($POST['lastname'] && !preg_match("/^[A-Za-z]+$/", $POST['lastname']))) {
+
+            $callback('Last name only allows letters.');
+            
+            return false;
+        }
+
         if (!empty($POST['username'] && (strlen($POST['username']) < 6))) {
 
             $callback('Username must atleast 6 characters.');
@@ -84,13 +98,11 @@ class Helper
             return false;
         }
 
-        if (!empty($POST['firstname'] && (strlen($POST['firstname']) < 3))) {
+        if (!empty($POST['firstname'] && (strlen($POST['firstname']) < 3) )) {
 
             $callback('First name is invalid.');
 
             return false;
-
-
         }
 
         if (!empty($POST['lastname'] && (strlen($POST['lastname']) < 3))) {
@@ -98,8 +110,6 @@ class Helper
             $callback('First name is invalid.');
 
             return false;
-
-
         }
 
         return true;
