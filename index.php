@@ -21,6 +21,7 @@ session_start();
     $postController = new PostService;
 
     $result = $postController->fetchAllPosts();
+
     ?>
 
     <main class="mt-5">
@@ -32,49 +33,53 @@ session_start();
 
                     <!-- blog cards -->
                     <div class="row">
-                        <?php foreach ($result as $data): ?>
-                            <div class="col-12 mb-4">
-                                <div class="card border-0 rounded-0" style="overflow: hidden;">
-                                    <div class="row">
-                                        <div class="col-md-4 d-flex align-items-center justify-content-center"
-                                            style="overflow: hidden; max-height: 21.4rem; min-height: 20rem;">
-                                            <img src="app/assets/img/kim.jpeg" alt="blog-img" class="rounded-0 object-fit-cover w-100 h-100">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body h-100">
-                                                <div class="mb-3">
-                                                    <h3 class="mb-2">
-                                                        <a href="post.php?pid=<?= $data['post_id']; ?>" class="card-title link-underline-primary text-decoration-none fs-4 fw-bold text-gray-90">
-                                                            <?= $data['title']; ?>
-                                                        </a>
-                                                    </h3>
-                                                    <p class="text-gray-20 fst-italic fs-8">
-                                                    <?= $data['subtitle']; ?>
+                        <?php if (count($result) > 0): ?>
+                            <?php foreach ($result as $data): ?>
+                                <div class="col-12 mb-4">
+                                    <div class="card border-0 rounded-0" style="overflow: hidden;">
+                                        <div class="row">
+                                            <div class="col-md-4 d-flex align-items-center justify-content-center"
+                                                style="overflow: hidden; max-height: 21.4rem; min-height: 20rem;">
+                                                <img src="app/assets/img/kim.jpeg" alt="blog-img" class="rounded-0 object-fit-cover w-100 h-100">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body h-100">
+                                                    <div class="mb-3">
+                                                        <h3 class="mb-2">
+                                                            <a href="post.php?pid=<?= $data['post_id']; ?>" class="card-title link-underline-primary text-decoration-none fs-4 fw-bold text-gray-90">
+                                                                <?= $data['title']; ?>
+                                                            </a>
+                                                        </h3>
+                                                        <p class="text-gray-20 fst-italic fs-8">
+                                                        <?= $data['subtitle']; ?>
+                                                        </p>
+                                                    </div>
+                                                    <p class="card-text poppins-light fs-7">
+                                                        <?= substr($data['content'], 0, 190) ?>...
                                                     </p>
-                                                </div>
-                                                <p class="card-text poppins-light fs-7">
-                                                    <?= substr($data['content'], 0, 190) ?>...
-                                                </p>
-                                                <p class="card-text fs-8 poppins-bold text-gray-100 text-uppercase">
-                                                    <?= $data['username']; ?> | <?= $data['date_created'] ?>
-                                                </p>
-                                                <a href="post.php?pid=<?= $data['post_id']; ?>">
-                                                    <button class="btn btn-outline-primary rounded-0 fs-7">
-                                                        Read more
-                                                    </button>
-                                                </a>
-
-                                                <div class="d-flex gap-2 mt-4 fs-8">
-                                                    <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
-                                                        <?= $data['tags'] ?>
+                                                    <p class="card-text fs-8 poppins-bold text-gray-100 text-uppercase">
+                                                        <?= $data['username']; ?> | <?= $data['date_created'] ?>
+                                                    </p>
+                                                    <a href="post.php?pid=<?= $data['post_id']; ?>">
+                                                        <button class="btn btn-outline-primary rounded-0 fs-7">
+                                                            Read more
+                                                        </button>
                                                     </a>
+
+                                                    <div class="d-flex gap-2 mt-4 fs-8">
+                                                        <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
+                                                            <?= $data['tags'] ?>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php endforeach ?>
+                            <?php endforeach ?>
+                        <?php else: ?>
+                            <h4>No post yet</h4>
+                        <?php endif; ?>
                     </div>
                 </div>
 

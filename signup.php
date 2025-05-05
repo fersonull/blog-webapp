@@ -16,7 +16,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
 </head>
 <body class="poppins-regular">
     
-    <main class="vh-100 d-flex align-items-center justify-content-center">
+    <main class="min-vh-100 d-flex align-items-center justify-content-center">
 
         <div class="p-4" style="max-width: 30rem;">
             <a href="/blog/" class="text-decoration-none">
@@ -33,7 +33,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
                 <p class="text-decoration-none m-0">Or <a href="/blog/login.php" class="text-decoration-none">sign in with your account</a></p>
             </div>
 
-            <form method="POST" id="signupForm">
+            <form method="POST" id="signupForm" class="my-3">
                 
                 <div class="mb-4">
                     <label for="" class="form-label poppins-bold fs-7 text-uppercase">First name</label>
@@ -46,6 +46,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
                 <div class="mb-4">
                     <label for="" class="form-label poppins-bold fs-7 text-uppercase">Username</label>
                     <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your username" name="username">
+                    <div class="form-text">username must at least 6 characters.</div>
                 </div>
                 <div class="mb-4">
                     <label for="" class="form-label poppins-bold fs-7 text-uppercase">Password</label>
@@ -69,7 +70,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
             </form>
         </div>
 
-        <script src="/blog/app/api/js/signup.js"></script>
+        <script src="/blog/app/api/js/signup.js" type="module"></script>
     </main>
 </body>
 </html>

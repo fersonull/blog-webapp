@@ -11,7 +11,7 @@ class AuthUser extends User
 
         $userData = $this->userExists($cred['username'], $cred['password']);
 
-        if (!count($userData) > 0) {
+        if (!$userData) {
             return false;
         }
 
@@ -21,12 +21,15 @@ class AuthUser extends User
     }
 
     public function register($cred) {
-        $userData = $this->userExists($cred['username'], $cred['password']);
+        $userData = $this->checkUsername($cred['username']);
 
-        if (count($userData) > 0) {
+        if ($userData) {
             return false;
         }
 
-        $query = "INSERT INTO users_tb ";
+        $this->addUser($cred['firstname'], $cred['lastname'], $cred['username'], $cred['password']);
+
+        return true;
+        
     }
 }

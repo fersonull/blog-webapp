@@ -1,43 +1,37 @@
-const form = document.getElementById('loginForm');
+import { swalToast } from "/blog/app/helper/swal.js"
+
+const form = document.getElementById('loginForm')
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target)
 
-    const response = await fetch('app/api/auth_login.php', {
-        method: 'POST',
-        body: formData
-    })
-
-    const data = await response.json();
-
-    if (data.status === 'error') {
-        Swal.fire({
-            toast: true,
-            title: '<p class="text-primary m-0">Oops!</p>',
-            width: '22rem',
-            timer: 2000,
-            timerProgressBar: true,
-            html: '<p class="m-0 fs-7">' + data.message +'</p>',
-            position: 'top-end',
-            showConfirmButton: false,
+    try {
+        const response = await fetch('app/api/auth_login.php', {
+            method: 'POST',
+            body: formData
         })
-
-        return;
-    }
     
-    Swal.fire({
-        toast: true,
-        title: '<p class="text-success m-0">Success!</p>',
-        width: '22rem',
-        timer: 1500,
-        timerProgressBar: true,
-        html: '<p class="m-0 fs-7">' + data.message +'</p>',
-        position: 'top-end',
-        showConfirmButton: false,
-    }).then(() => {
-        window.location.href = '/blog/';
-    })
+        const data = await response.json();
+
+        console.log(data)
+        // console.log(typeof(data.status))
+    
+        if (data.status === 'error') {
+            swalToast(false , data.message, () => {
+                return
+            }, 2000)
+        }
+    
+        if (data.status === 'success') {
+            swalToast(true , data.message, () => {
+                window.location.href = '/blog/'
+                return
+            }, 1000)
+        }
+    } catch (err) {
+        console.log(err)
+    }
 
 })

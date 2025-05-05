@@ -13,20 +13,67 @@ class User extends Database
         $this->conn = $this->connect();
     }
 
-    public function userExists($username, $password)
+    public function addUser($firstname, $lastname, $username, $password) 
     {
         try {
-            $query = "SELECT * FROM users_tb WHERE username = :username AND password = :password";
+            $query = "INSERT INTO users_tb (firstname, lastname, username, password) VALUES (:fname, :lname, :username, :password)";
 
             $stmt = $this->conn->prepare($query);
 
-            $stmt->execute([':username' => $username, ':password' => $password]);
+            return $stmt->execute([
+                ':fname' => $firstname,
+                ':lname' => $lastname,
+                ':username' => $username,
+                ':password' => password_hash($password, PASSWORD_DEFAULT)
+            ]);
+
+        } catch (\PDOException $err) {
+            echo "Error: " . $err->getMessage();
+        }
+    }
+
+    public function checkUsername($username) 
+    {
+        try {
+            $query = "SELECT * FROM users_tb WHERE username = :username";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->execute([':username' => $username]);
 
             $result = $stmt->fetchAll();
 
-            return $result;
+            if (count($result) > 0) {
+                return true;
+            }
+
+            return false;
+            
         } catch (\PDOException $err) {
             echo "Error: " . $err->getMessage();
+        }
+    }
+
+    public function userExists($username, $password)
+    {
+        try {
+            $query = "SELECT * FROM users_tb WHERE username = :username";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->execute([':username' => $username]);
+
+            $result = $stmt->fetchAll();
+
+            if($result && password_verify($password, $result[0]['password'])) {
+                return $result;
+            }
+
+            return false;
+
+        } catch (\PDOException $err) {
+            error_log("Error: " . $err->getMessage());
+            return;
         }
     }
 }

@@ -42,20 +42,6 @@ class Helper
             return false;
         }
 
-        if (empty($POST['username'])) {
-            
-            $callback('Username is required.');
-
-            return false;
-        }
-
-        if (empty($POST['password'])) {
-           
-            $callback('Password is required.');
-
-            return false;
-        }
-
         if (empty($POST['firstname'])) {
            
             $callback('First name is required.');
@@ -66,6 +52,20 @@ class Helper
         if (empty($POST['lastname'])) {
            
             $callback('Last name is required.');
+
+            return false;
+        }
+
+        if (empty($POST['username'])) {
+            
+            $callback('Username is required.');
+
+            return false;
+        }
+
+        if (empty($POST['password'])) {
+           
+            $callback('Password is required.');
 
             return false;
         }

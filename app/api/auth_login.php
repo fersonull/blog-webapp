@@ -7,7 +7,7 @@ use App\Helper\Helper;
 use App\Classes\AuthUser;
 
 
-if (!$_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('location: /blog/login.php');
 }
 
@@ -26,7 +26,8 @@ if ($res) {
 
         echo json_encode(['status' => 'success', 'message' => 'Login successful!']);
         exit;
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'User not found.']);
+        exit;
     }
-
-    echo json_encode(['status' => 'error', 'message' => 'User not found.']);
 }

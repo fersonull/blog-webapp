@@ -1,6 +1,6 @@
-const form = document.getElementById('signupForm')
+import { swalToast } from "/blog/app/helper/swal.js";
 
-console.log('ok')
+const form = document.getElementById('signupForm')
 
 form.addEventListener('submit' , async (e) => {
     e.preventDefault();
@@ -16,6 +16,18 @@ form.addEventListener('submit' , async (e) => {
         const data = await respone.json();
     
         console.log(data)
+
+        if (data.status === 'error') {
+            swalToast(false, data.message, () => {
+                return
+            }, 2000)
+        }
+
+        if (data.status === 'success') {
+            swalToast(true, data.message, () => {
+                return
+            }, 1000)
+        }
     } catch (err) {
         console.log(err)
     }

@@ -11,7 +11,7 @@ if (!$_SERVER['REQUEST_METHOD'] === 'POST') {
     header('location: /blog/login.php');
 }
 
-$res = Helper::validateLoginForm($_POST, function($param) {
+$res = Helper::validateRegForm($_POST, function($param) {
     echo json_encode(['status' => 'error', 'message' => $param]);
     exit;
 });
@@ -28,5 +28,5 @@ if ($res) {
         exit;
     }
 
-    echo json_encode(['status' => 'error', 'message' => 'User not found.']);
+    echo json_encode(['status' => 'error', 'message' => 'Username already taken.']);
 }
