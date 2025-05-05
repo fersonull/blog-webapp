@@ -9,8 +9,8 @@ use App\Classes\PostService;
 $postController = new PostService;
 
 if($postController->uploadPost($_FILES, $_POST, $_SESSION['userData'][0]['user_id'])) {
-    echo "uploaded";
+    echo json_encode(['status' => 'success', 'message' => 'Post uploaded!']);
     exit;
 }
 
-echo "mali";
+echo json_encode(['status' => 'error', 'message' => 'Something went wrong']);

@@ -20,7 +20,7 @@ session_start();
 
     <div class="mt-md-5 overflow-hidden">
         <div class="container-fluid px-lg-5">
-            <form method="POST" action="/blog/app/api/upload_post.php" enctype="multipart/form-data" class="p-3">
+            <form method="POST" enctype="multipart/form-data" class="p-3" id="uploadForm">
                 <a href="/blog/" class="text-decoration-none">
                     <i class="fas fa-arrow-left mb-3"></i>
                     Back
@@ -67,6 +67,6 @@ session_start();
         </div>
     </div>
 
-    <script src="/blog/app/api/js/upload.js "></script>
+    <script src="/blog/app/api/js/upload.js" type="module"></script>
 </body>
 </html>
