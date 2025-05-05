@@ -30,7 +30,7 @@ class PostService extends Database
     public function getPostByID($id)
     {
         try {
-            $query = "SELECT * FROM posts_tb JOIN users_tb WHERE posts_tb.post_id = :post_id";
+            $query = "SELECT * FROM posts_tb JOIN users_tb WHERE posts_tb.user_id = users_tb.user_id AND posts_tb.post_id = :post_id";
 
             $stmt = $this->conn->prepare($query);
 
