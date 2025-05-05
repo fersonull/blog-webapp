@@ -48,7 +48,7 @@ session_start();
                                         <div class="col-md-8">
                                             <div class="card-body p-md-0">
                                                 <p class="mb-3 fs-8 poppins-bold text-uppercase">
-                                                    <a href=""><?= $post['username'] ?></a> | 
+                                                    <a href="view_profile.php?vid=<?= $post['user_id'] ?>"><?= $post['username'] ?></a> | 
                                                     <span class="opacity-75">
                                                         <?= $post['date_created'] ?>
                                                     </span>

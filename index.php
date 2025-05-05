@@ -43,7 +43,7 @@ session_start();
                                                 <img src="app/assets/img/kim.jpeg" alt="blog-img" class="rounded-0 object-fit-cover w-100 h-100">
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="card-body h-100">
+                                                <div class="card-body h-100 p-md-0">
                                                     <div class="mb-3">
                                                         <h3 class="mb-2">
                                                             <a href="post.php?pid=<?= $data['post_id']; ?>" class="card-title link-underline-primary text-decoration-none fs-4 fw-bold text-gray-90">

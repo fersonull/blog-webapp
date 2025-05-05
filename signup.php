@@ -4,9 +4,7 @@ session_start();
 if (isset($_SESSION['userData'][0]['user_id'])) {
     header('location: /blog/');
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +16,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
     
     <main class="min-vh-100 d-flex align-items-center justify-content-center">
 
-        <div class="p-4" style="max-width: 30rem;">
+        <div class="p-4">
             <a href="/blog/" class="text-decoration-none">
                 <div class="mb-3">
                     <i class="fas fa-arrow-left"></i>
@@ -34,24 +32,53 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
             </div>
 
             <form method="POST" id="signupForm" class="my-3">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-4">
+                            <label for="" class="form-label poppins-bold fs-7 text-uppercase">First name</label>
+                            <input type="text" class="form-control rounded-0" placeholder="Enter your first name" name="firstname">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-4">
+                            <label for="" class="form-label poppins-bold fs-7 text-uppercase">Last name</label>
+                            <input type="text" class="form-control rounded-0" placeholder="Enter your last name" name="lastname">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-4">
+                            <label for="" class="form-label poppins-bold fs-7 text-uppercase">Username</label>
+                            <input type="text" class="form-control rounded-0" placeholder="Enter your username" name="username">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-4">
+                            <label for="" class="form-label poppins-bold fs-7 text-uppercase">Password</label>
+                            <input type="password" class="form-control rounded-0" placeholder="Enter your password" name="password">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-4">
+                            <label for="" class="form-label poppins-bold fs-7 text-uppercase">Confirm password</label>
+                            <input type="password" class="form-control rounded-0" placeholder="Confirm your password" name="confirm_pass">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div>
+                    <div class="form-check d-flex text-md-start">
+                        <input class="form-check-input fs-8 rounded-0 shadow-none me-1" type="checkbox" id="remember">
+                        <label for="remember" class="form-check-label fs-8 user-select-none">Show password</label>
+                    </div>
+                </div> -->
                 
-                <div class="mb-4">
-                    <label for="" class="form-label poppins-bold fs-7 text-uppercase">First name</label>
-                    <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your first name" name="firstname">
-                </div>
-                <div class="mb-4">
-                    <label for="" class="form-label poppins-bold fs-7 text-uppercase">Last name</label>
-                    <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your last name" name="lastname">
-                </div>
-                <div class="mb-4">
-                    <label for="" class="form-label poppins-bold fs-7 text-uppercase">Username</label>
-                    <input type="text" class="form-control rounded-0 w-md-full" placeholder="Enter your username" name="username">
-                    <div class="form-text">username must at least 6 characters.</div>
-                </div>
-                <div class="mb-4">
-                    <label for="" class="form-label poppins-bold fs-7 text-uppercase">Password</label>
-                    <input type="password" class="form-control rounded-0 w-md-full" placeholder="Enter your pasword" name="password">
-                </div>
+                <!-- <hr> -->
+                
                 <div class="mb-4">
                     <div class="row">
                         <div class="col-6">

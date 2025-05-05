@@ -112,6 +112,12 @@ class Helper
             return false;
         }
 
+        if (!empty($POST['password']) && ($POST['password'] !== $POST['confirm_pass'])) {
+            $callback('Password did not match.');
+
+            return false;
+        }
+
         return true;
     }
 

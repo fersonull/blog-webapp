@@ -21,8 +21,8 @@ class User extends Database
             $stmt = $this->conn->prepare($query);
 
             return $stmt->execute([
-                ':fname' => $firstname,
-                ':lname' => $lastname,
+                ':fname' => ucfirst($firstname),
+                ':lname' => ucfirst($lastname),
                 ':username' => $username,
                 ':password' => password_hash($password, PASSWORD_DEFAULT)
             ]);
