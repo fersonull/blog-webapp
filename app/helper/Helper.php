@@ -138,4 +138,9 @@ class Helper
         session_unset();
         session_destroy();
     }
+
+    public static function equalToSession($SESSION, $DATA)
+    {
+        return $SESSION === $DATA;
+    }
 }

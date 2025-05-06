@@ -19,6 +19,9 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
     require __DIR__ . '/vendor/autoload.php';
 
     use App\Classes\PostService;
+    use App\Helper\Helper;
+
+    $currentUserLogged = Helper::equalToSession($_SESSION['userData'][0]['user_id'], $_GET['vid']);
 
     $postController = new PostService;
 
@@ -40,10 +43,18 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                         </div>
                         <div class="p-3 mt-3">
                             <h5 class="poppins-bold mt-5">
-                                <?= $result[0]['firstname'] ?> <?= $result[0]['lastname'] ?>
+                                <?php if (!$currentUserLogged): ?>
+                                    <?= $result[0]['firstname'] ?> <?= $result[0]['lastname'] ?>
+                                <?php else: ?>
+                                    <?= $result['firstname'] ?> <?= $result['lastname'] ?>
+                                <?php endif; ?>
                             </h5>
                             <p class="poppins-regular fs-7">
-                                @<?= $result[0]['username'] ?>
+                            <?php if (!$currentUserLogged): ?>
+                                    @<?= $result[0]['username'] ?>
+                                <?php else: ?>
+                                    @<?= $result['username'] ?>
+                                <?php endif; ?>
                             </p>
                         </div>
 

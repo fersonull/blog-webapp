@@ -12,12 +12,15 @@ session_start();
     require __DIR__ . '/vendor/autoload.php';
 
     use App\Classes\PostService;
+    use App\Classes\CommentService;
 
     $postController = new PostService;
+    $commController = new CommentService;
 
     $post_id = $_GET['pid'];
 
     $post = $postController->getPostByID($post_id);
+    $comments = $commController->getCommentsByPost($post_id);
     ?>
 
     <main class="mt-4">
@@ -94,24 +97,38 @@ session_start();
                         <div class="card-body">
 
                             <!-- Comments -->
-                            <div class="card border-b rounded-0">
-                                <div class="card-header text-uppercase poppins-bold fs-8">
-                                    <a href="">
-                                        Jasfer Monton
-                                    </a>
-                                    <span class="text-lowercase poppins-regular fst-italic">says,</span>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text fs-7">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat accusamus officia tempore voluptatum sed recusandae voluptas aut temporibus illum suscipit?
-                                    </p>
-                                    <p class="card-text poppins-bold fs-8 text-uppercase text-end text-gray-100">apr 24, 2004 | 12:23</p>
-                                </div>
-                                
-                            </div>
+                            <?php if (count($comments) > 0): ?>
+                                <?php foreach ($comments as $comms): ?>
+                                    <div class="card border-b rounded-0">
+                                        <div class="card-header text-uppercase poppins-bold fs-8">
+                                            <a href="view_profile.php?vid=<?= $comms['user_id'] ?>">
+                                                <?= $comms['username'] ?>
+                                            </a>
+                                            <span class="text-lowercase poppins-regular fst-italic">says,</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text fs-7">
+                                                <?= $comms['content'] ?>
+                                            </p>
+                                            <p class="card-text poppins-bold fs-8 text-uppercase text-end text-gray-100">
+                                                <?= $comms['commented_at'] ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <h5>No comments</h5>
+                            <?php endif; ?>
                         </div>
                         <div class="card-footer text-center">
-                            <?= !isset($_SESSION['userData'][0]['user_id']) ?  "<a href='' class='fs-7'>Login to comment</a>" : "" ?>
+                            <?php if (isset($_SESSION['userData'][0]['user_id'])): ?>
+                                <form action="">
+                                    <textarea name="comment" id="comm" class="form-control rounded-0 shadow-none"></textarea>
+                                </form>
+                            <?php else: ?>
+                                <a href="/blog/login.php" class="text-center">Login to comment</a>
+                            <?php endif; ?>
+
                         </div>
                     </div>
                 </div>
