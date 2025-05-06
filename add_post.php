@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['userData'][0]['user_id'])) {
+    header('location: /blog/login.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

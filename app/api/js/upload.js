@@ -27,7 +27,7 @@ form.addEventListener('submit' , async (e) => {
 
         if (data.status === 'success') {
             swalToast(true, data.message, () => {
-                return;
+                window.location.href = '/blog/';
             }, 1000)
         }
     } catch (err) {

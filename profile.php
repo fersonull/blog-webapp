@@ -5,6 +5,8 @@ session_start();
 //     header('location: /blog/login.php');
 //     exit;
 // }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +24,11 @@ session_start();
 
     $postController = new PostController;
 
-    $result = $postController->getUserPosts($_SESSION['userData'][0]['user_id'] ?? '');
+    $currentUser = $_SESSION['userData'][0]['user_id'] ?? '';
+
+    $result = $postController->getUserPosts($currentUser);
+
+    
     ?>
 
     <div class="mt-md-5 overflow-hidden">
@@ -96,7 +102,8 @@ session_start();
                                                         <?= $post['title'] ?>
                                                     </h5>
                                                     <p class="card-text fs-7 mb-2">
-                                                        <?= substr($post['content'], 0, 90) ?>            <?= strlen($post['content']) >= 90 ? '...' : '' ?>
+                                                        <?= substr($post['content'], 0, 90) ?>
+                                                        <?= strlen($post['content']) >= 90 ? '...' : '' ?>
                                                     </p>
                                                     <div class="d-flex gap-2 fs-8">
                                                         <a href=""

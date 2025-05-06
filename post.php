@@ -6,6 +6,8 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <?php require 'app/partials/head.php' ?>
+
+<title>Alwrite</title>
 <body class="poppins-regular">
     <?php include 'app/partials/nav.php'; ?>
 
@@ -19,9 +21,16 @@ session_start();
     $commController = new CommentController;
 
     $post_id = $_GET['pid'];
+    $currentUser = $_SESSION['userData'][0]['user_id'] ?? '';
+
+    if (isset($_POST['post_comm'])) {
+        $commController->addComment($post_id, $currentUser, $_POST['comm_content']);
+    }
 
     $post = $postController->getPostByID($post_id);
     $comments = $commController->getCommentsByPost($post_id);
+
+
     ?>
 
     <main class="mt-4">
@@ -96,44 +105,48 @@ session_start();
                             </span>
                         </div>
                         <div class="card-body">
+                            <div style="max-height: 20rem; overflow: auto;">
 
+                                <?php if (count($comments) > 0): ?>
+                                    <?php foreach ($comments as $comms): ?>
+                                        <div class="card border-b rounded-0 mb-3">
+                                            <div class="card-header text-uppercase poppins-bold fs-8">
+                                                <a href="view_profile.php?vid=<?= $comms['user_id'] ?>">
+                                                    <?= $comms['username'] ?>
+                                                </a>
+                                                <span class="text-lowercase poppins-regular fst-italic">says,</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text fs-7">
+                                                    <?= $comms['content'] ?>
+                                                </p>
+                                                <p class="card-text poppins-bold fs-8 text-uppercase text-end text-gray-100">
+                                                    <?= $comms['date'] ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <div class="card border-0 rounded-0 bg-body-tertiary">
+                                        <div class="card-body text-center">
+                                            <p class="card-text poppins-semibold">No comments</p>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                             <!-- Comments -->
-                            <?php if (count($comments) > 0): ?>
-                                <?php foreach ($comments as $comms): ?>
-                                    <div class="card border-b rounded-0">
-                                        <div class="card-header text-uppercase poppins-bold fs-8">
-                                            <a href="view_profile.php?vid=<?= $comms['user_id'] ?>">
-                                                <?= $comms['username'] ?>
-                                            </a>
-                                            <span class="text-lowercase poppins-regular fst-italic">says,</span>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text fs-7">
-                                                <?= $comms['content'] ?>
-                                            </p>
-                                            <p class="card-text poppins-bold fs-8 text-uppercase text-end text-gray-100">
-                                                <?= $comms['commented_at'] ?>
-                                            </p>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <div class="card border-0 rounded-0 bg-body-tertiary">
-                                    <div class="card-body text-center">
-                                        <p class="card-text poppins-semibold">No comments</p>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
                         </div>
                         <div class="card-footer text-center">
                             <?php if (isset($_SESSION['userData'][0]['user_id'])): ?>
-                                <form action="">
-                                    <textarea name="comment" id="comm" class="form-control rounded-0 shadow-none"></textarea>
+                                <form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>?pid=<?= $post['post_id'] ?>" class="d-flex">
+                                    <textarea name="comm_content" id="comm" rows="1" class="form-control rounded-0 shadow-none flex-grow-1"></textarea>
+                                    <button type="submit" name="post_comm" class="btn btn-primary rounded-start-0 flex-grow-1 d-flex align-items-center justify-content-center">
+                                        <i class="fas fa-paper-plane text-white"></i>
+                                    </button>
                                 </form>
                             <?php else: ?>
                                 <a href="/blog/login.php" class="text-center">Login to comment</a>
                             <?php endif; ?>
-
                         </div>
                     </div>
                 </div>
