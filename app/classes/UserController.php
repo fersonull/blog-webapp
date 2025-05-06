@@ -4,7 +4,7 @@ namespace App\Classes;
 use App\Classes\User;
 use App\Helper\Helper;
 
-class AuthUser extends User
+class UserController extends User
 {
     public function login($cred)
     {

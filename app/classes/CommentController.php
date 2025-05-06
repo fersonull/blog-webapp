@@ -3,7 +3,7 @@
 namespace App\Classes;
 use App\Config\Database;
 
-class CommentService extends Database
+class CommentController extends Database
 {
     private $conn;
 

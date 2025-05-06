@@ -3,7 +3,7 @@
 namespace App\Classes;
 use App\Config\Database;
 
-class PostService extends Database
+class PostController extends Database
 {
     protected $conn;
 
@@ -15,7 +15,7 @@ class PostService extends Database
     public function fetchAllPosts()
     {
         try {
-            $query = "SELECT * FROM posts_tb JOIN users_tb WHERE users_tb.user_id = posts_tb.user_id";
+            $query = "SELECT * FROM posts_tb JOIN users_tb WHERE users_tb.user_id = posts_tb.user_id ORDER BY date_created DESC";
 
             $stmt = $this->conn->prepare($query);
 
@@ -106,5 +106,14 @@ class PostService extends Database
         } catch (\PDOException $err) {
             echo "error:" . $err->getMessage();
         }
+    }
+
+    public function deletePost($post_id)
+    {
+        $query = "DELETE FROM posts_tb WHERE post_id = :pid";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute([':pid' => $post_id]);
     }
 }

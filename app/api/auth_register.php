@@ -4,7 +4,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 header('Content-Type: application/json');
 
 use App\Helper\Helper;
-use App\Classes\AuthUser;
+use App\Classes\UserController;
 
 
 if (!$_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -18,7 +18,7 @@ $res = Helper::validateRegForm($_POST, function($param) {
 
 if ($res) {
 
-    $auth = new AuthUser;
+    $auth = new UserController();
 
     if ($auth->register($_POST)) {
 

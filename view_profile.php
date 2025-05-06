@@ -18,12 +18,12 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
 
     require __DIR__ . '/vendor/autoload.php';
 
-    use App\Classes\PostService;
+    use App\Classes\PostController;
     use App\Helper\Helper;
 
     $currentUserLogged = Helper::equalToSession($_SESSION['userData'][0]['user_id'], $_GET['vid']);
 
-    $postController = new PostService;
+    $postController = new PostController;
 
     $result = $postController->getUserPosts($_GET['vid']);
     ?>
@@ -74,6 +74,15 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                                 </button>
                             </div>
                         <?php endif; ?>
+
+                        <!-- <div class="d-flex px-2">
+                            <p class="d-flex flex-column align-items-center poppins-bold text-uppercase fs-8">
+                                <span class="fs-4 text-primary">
+                                    <?php //count($result) ?>
+                                </span>
+                                Post
+                            </p>
+                        </div> -->
                     </div>
                 </div>
 
@@ -85,60 +94,33 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                     </h4> -->
 
                     <div class="row">
-                        <!-- <div class="mt-3">
-                            <div class="row">
-                            </div>
-                        </div> -->
 
-                        <!-- <ul class="nav nav-tabs px-2" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active border-0 text-bg-primary" id="home-tab" data-bs-toggle="tab"
-                                    data-bs-target="#home-tab-pane" type="button" role="tab"
-                                    aria-controls="home-tab-pane" aria-selected="true">Overview</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                    data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                    aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
-                                    data-bs-target="#contact-tab-pane" type="button" role="tab"
-                                    aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
-                                aria-labelledby="home-tab" tabindex="0">
-                                
-                            </div>
-                        </div> -->
-
-
-
+                        <h3 class="mb-3 poppins-semibold">Recent Post</h3>
                         <?php if (count($result) > 0): ?>
-                            <?php // foreach ($result as $post): ?>
-                                <!-- <div class="col-12 col-lg-4 mb-3">
-                                    <div class="card rounded-0 border-0 shadow-sm">
-                                        <div class="card-body">
-                                            <p class="fs-7 text-gray-100 poppins-medium">
-                                                <?= $post['date_created'] ?>
-                                            </p>
-                                            <h5 class="card-title poppins-semibold">
-                                                <?= $post['title'] ?>
-                                            </h5>
-                                            <p class="card-text fs-7">
-                                                <?= substr($post['content'], 0, 90) ?><?= strlen($post['content']) >= 90 ? '...' : '' ?>
-                                            </p>
-                                            <div class="d-flex gap-2 fs-8">
-                                                <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
-                                                    <?= $post['tags'] ?>
-                                                </a>
+                            <?php foreach ($result as $post): ?>
+                                <div class="col-12 col-lg-4 mb-3">
+                                    <a href="post.php?pid=<?= $post['post_id'] ?>" class="text-decoration-none text-body">
+                                        <div class="card hover-scale rounded-0 border-0 shadow-sm">
+                                            <div class="card-body">
+                                                <p class="fs-7 text-gray-100 poppins-medium">
+                                                    <?= $post['date_created'] ?>
+                                                </p>
+                                                <h5 class="card-title poppins-semibold">
+                                                    <?= $post['title'] ?>
+                                                </h5>
+                                                <p class="card-text fs-7 mb-2">
+                                                    <?= substr($post['content'], 0, 90) ?><?= strlen($post['content']) >= 90 ? '...' : '' ?>
+                                                </p>
+                                                <div class="d-flex gap-2 fs-8">
+                                                    <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
+                                                        <?= $post['tags'] ?>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div> -->
-                            <?php //endforeach; ?>
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
                         <?php else: ?>
                             <h3>No post yet</h3>
                         <?php endif; ?>

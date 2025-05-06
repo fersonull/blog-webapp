@@ -19,17 +19,17 @@ form.addEventListener('submit' , async (e) => {
     
         console.log(data)
 
-        // if (data.status === 'error') {
-        //     swalToast(false, data.message, () => {
-        //         return
-        //     }, 2000)
-        // }
+        if (data.status === 'error') {
+            swalToast(false, data.message, () => {
+                return
+            }, 2000)
+        }
 
-        // if (data.status === 'success') {
-        //     swalToast(true, data.message, () => {
-        //         return
-        //     }, 1000)
-        // }
+        if (data.status === 'success') {
+            swalToast(true, data.message, () => {
+                return;
+            }, 1000)
+        }
     } catch (err) {
         console.log(err)
     }

@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 ?>
 
@@ -11,11 +12,11 @@ session_start();
     <?php
     require __DIR__ . '/vendor/autoload.php';
 
-    use App\Classes\PostService;
-    use App\Classes\CommentService;
+    use App\Classes\PostController;
+    use App\Classes\CommentController;
 
-    $postController = new PostService;
-    $commController = new CommentService;
+    $postController = new PostController;
+    $commController = new CommentController;
 
     $post_id = $_GET['pid'];
 
@@ -88,7 +89,7 @@ session_start();
                     <div class="card rounded-0 border-0 bg-body-tertiary">
                         <div class="card-header fw-bold">
                             <span class="text-gray-100">
-                                19
+                                <?= count($comments) ?>
                             </span>
                             <span class="fs-7">
                                 comments
@@ -117,7 +118,11 @@ session_start();
                                     </div>
                                 <?php endforeach; ?>
                             <?php else: ?>
-                                <h5>No comments</h5>
+                                <div class="card border-0 rounded-0 bg-body-tertiary">
+                                    <div class="card-body text-center">
+                                        <p class="card-text poppins-semibold">No comments</p>
+                                    </div>
+                                </div>
                             <?php endif; ?>
                         </div>
                         <div class="card-footer text-center">

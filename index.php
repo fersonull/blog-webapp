@@ -16,12 +16,12 @@ session_start();
     <?php
     require __DIR__ . '/vendor/autoload.php';
 
-    use App\Classes\PostService;
+    use App\Classes\PostController;
+    use App\Helper\Helper;
     
-    $postController = new PostService;
+    $postController = new PostController;
 
     $result = $postController->fetchAllPosts();
-
     ?>
 
     <main class="mt-5">
@@ -50,7 +50,7 @@ session_start();
                                                                 <?= $data['title']; ?>
                                                             </a>
                                                         </h3>
-                                                        <p class="text-gray-20 fst-italic fs-8">
+                                                        <p class="text-gray-20 fst-italic fs-7 poppins-semibold">
                                                         <?= $data['subtitle']; ?>
                                                         </p>
                                                     </div>

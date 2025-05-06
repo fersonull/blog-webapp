@@ -18,9 +18,9 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
 
     require __DIR__ . '/vendor/autoload.php';
 
-    use App\Classes\PostService;
+    use App\Classes\PostController;
 
-    $postController = new PostService;
+    $postController = new PostController;
 
     $result = $postController->getUserPosts($_SESSION['userData'][0]['user_id']);
     ?>
@@ -101,30 +101,39 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                         </div> -->
 
 
-
                         <?php if (count($result) > 0): ?>
-                            <?php // foreach ($result as $post): ?>
-                                <!-- <div class="col-12 col-lg-4 mb-3">
-                                    <div class="card rounded-0 border-0 shadow-sm">
-                                        <div class="card-body">
-                                            <p class="fs-7 text-gray-100 poppins-medium">
-                                                <?= $post['date_created'] ?>
-                                            </p>
-                                            <h5 class="card-title poppins-semibold">
-                                                <?= $post['title'] ?>
-                                            </h5>
-                                            <p class="card-text fs-7">
-                                                <?= substr($post['content'], 0, 90) ?><?= strlen($post['content']) >= 90 ? '...' : '' ?>
-                                            </p>
-                                            <div class="d-flex gap-2 fs-8">
-                                                <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
-                                                    <?= $post['tags'] ?>
+                            <?php foreach ($result as $post): ?>
+                                <div class="col-12 col-lg-4 mb-3">
+                                    <a href="post.php?pid=<?= $post['post_id'] ?>" class="text-decoration-none text-body">
+                                        <div class="card hover-scale rounded-0 border-0 shadow-sm">
+                                            <div class="card-body">
+                                                <p class="fs-7 text-gray-100 poppins-medium">
+                                                    <?= $post['date_created'] ?>
+                                                </p>
+                                                <h5 class="card-title poppins-semibold">
+                                                    <?= $post['title'] ?>
+                                                </h5>
+                                                <p class="card-text fs-7 mb-2">
+                                                    <?= substr($post['content'], 0, 90) ?><?= strlen($post['content']) >= 90 ? '...' : '' ?>
+                                                </p>
+                                                <div class="d-flex gap-2 fs-8">
+                                                    <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
+                                                        <?= $post['tags'] ?>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-end">
+                                                <a href="" class="text-decoration-none me-2">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+                                                <a href="" class="text-decoration-none">
+                                                    <i class="fas fa-trash text-danger"></i>
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
-                                </div> -->
-                            <?php //endforeach; ?>
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
                         <?php else: ?>
                             <h3>No post yet</h3>
                         <?php endif; ?>

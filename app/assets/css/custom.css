@@ -43,6 +43,14 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 0 !important;
 }
 
+.hover-scale {
+    transition: 0.5s ease;
+}
+
+.hover-scale:hover {
+    scale: 1.03 !important;
+}
+
 @media (min-width: 768px) {
     .w-md-full {
         width: 25rem !important;
