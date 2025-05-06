@@ -4,6 +4,7 @@ session_start();
 require __DIR__ . '/../../vendor/autoload.php';
 header('Content-Type: application/json');
 
+use App\Helper\Helper;
 use App\Classes\PostController;
 
 $postController = new PostController;

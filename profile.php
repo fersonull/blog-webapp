@@ -35,12 +35,15 @@ session_start();
         <div class="container-fluid px-lg-5">
 
             <?php if (!isset($_SESSION['userData'][0]['user_id'])): ?>
-                <div class="container mt-5 mx-auto w-100 text-center">
+                <div class="container mt-1 mx-auto w-100 text-center">
                     <div class="w-100 w-md-25 mx-auto">
                         <img src="/blog/app/assets/img/prof.png" class="w-100">
                     </div>
                     <h4 class="poppins-bold fs-2 mb-3">Login to view profile</h4>
-                    <a href="/blog/login.php" class="btn btn-primary rounded-0">Login now</a>
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                        <a href="/blog/login.php" class="btn btn-primary rounded-0 fs-5 poppins-semibold mb-2">Go to login</a>
+                        <a href="/blog/" class="btn rounded-0 fs-7 ">Go back home</a>
+                    </div>
                 </div>
             <?php else: ?>
                 <div class="row">

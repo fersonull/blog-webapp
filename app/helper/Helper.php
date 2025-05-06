@@ -121,12 +121,18 @@ class Helper
         return true;
     }
 
-    public static function storeUserToSession($USER) {
+    public static function storeUserToSession($USER) 
+    {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
         return $_SESSION['userData'] = $USER;
+    }
+
+    public static function validateUploadForm()
+    {
+        // TODO validation logic
     }
 
     public static function logOut () {
