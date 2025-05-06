@@ -108,12 +108,18 @@ class PostController extends Database
         }
     }
 
-    public function deletePost($post_id)
+    public function deletePost($get)
     {
-        $query = "DELETE FROM posts_tb WHERE post_id = :pid";
+        try {
+            $query = "DELETE FROM posts_tb WHERE post_id = :pid";
 
-        $stmt = $this->conn->prepare($query);
+            $stmt = $this->conn->prepare($query);
 
-        $stmt->execute([':pid' => $post_id]);
+            if ($stmt->execute([':pid' => $get['del']])) {
+                return true;
+            }
+        } catch (\PDOException $err) {
+            echo $err->getMessage();
+        }
     }
 }

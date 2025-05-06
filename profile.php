@@ -71,34 +71,6 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                     </h4> -->
 
                     <div class="row">
-                        <!-- <div class="mt-3">
-                            <div class="row">
-                            </div>
-                        </div> -->
-
-                        <!-- <ul class="nav nav-tabs px-2" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active border-0 text-bg-primary" id="home-tab" data-bs-toggle="tab"
-                                    data-bs-target="#home-tab-pane" type="button" role="tab"
-                                    aria-controls="home-tab-pane" aria-selected="true">Overview</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                    data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                    aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
-                                    data-bs-target="#contact-tab-pane" type="button" role="tab"
-                                    aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
-                                aria-labelledby="home-tab" tabindex="0">
-                                
-                            </div>
-                        </div> -->
 
 
                         <?php if (count($result) > 0): ?>
@@ -126,7 +98,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                                                 <a href="" class="text-decoration-none me-2">
                                                     <i class="fas fa-pen"></i>
                                                 </a>
-                                                <a href="" class="text-decoration-none">
+                                                <a href="app/api/delete.php?del=<?= $post['post_id'] ?>" name="delete" class="text-decoration-none delete-link">
                                                     <i class="fas fa-trash text-danger"></i>
                                                 </a>
                                             </div>
@@ -142,6 +114,12 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
             </div>
         </div>
     </div>
+
+    <script>
+
+</script>
+
+    <script src="/blog/app/api/js/delete.js" type="module"></script>
 
 </body>
 
