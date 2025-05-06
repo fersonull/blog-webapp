@@ -37,3 +37,5 @@ phpunit.result.cache
 # Other
 *.zip
 *.tar.gz
+
+/app/api/uploads/
