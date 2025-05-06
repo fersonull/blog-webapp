@@ -55,7 +55,11 @@ session_start();
                                                         </p>
                                                     </div>
                                                     <p class="card-text poppins-light fs-7">
-                                                        <?= substr($data['content'], 0, 190) ?>...
+                                                        <?php if (strlen($data['content']) > 190):   ?>
+                                                            <?= substr($data['content'], 0, 190) ?>...
+                                                        <?php else: ?>
+                                                            <?= $data['content'] ?>
+                                                        <?php endif; ?>
                                                     </p>
                                                     <p class="card-text fs-8 poppins-bold text-gray-100 text-uppercase">
                                                         <?= $data['username']; ?> | <?= $data['date_created'] ?>
