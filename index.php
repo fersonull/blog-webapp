@@ -69,12 +69,6 @@ session_start();
                                                             Read more
                                                         </button>
                                                     </a>
-
-                                                    <div class="d-flex gap-2 mt-4 fs-8">
-                                                        <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
-                                                            <?= $data['tags'] ?>
-                                                        </a>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

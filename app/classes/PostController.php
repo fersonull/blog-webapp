@@ -91,7 +91,7 @@ class PostController extends Database
                 return;   
             }
 
-            $query = "INSERT INTO posts_tb (image, title, subtitle, content, tags, user_id) VALUES (:image, :title, :sub, :content, :tags, :user_id)";
+            $query = "INSERT INTO posts_tb (image, title, subtitle, content, user_id) VALUES (:image, :title, :sub, :content, :user_id)";
 
             $stmt = $this->conn->prepare($query);
 
@@ -100,7 +100,6 @@ class PostController extends Database
                 ':title' => $POST['title'],
                 ':sub' => $POST['subtitle'],
                 ':content' => $POST['content'],
-                ':tags' => '#sample',
                 ':user_id' => $userID
             ]);
         } catch (\PDOException $err) {

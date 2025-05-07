@@ -108,12 +108,6 @@ session_start();
                                                         <?= substr($post['content'], 0, 90) ?>
                                                         <?= strlen($post['content']) >= 90 ? '...' : '' ?>
                                                     </p>
-                                                    <div class="d-flex gap-2 fs-8">
-                                                        <a href=""
-                                                            class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
-                                                            <?= $post['tags'] ?>
-                                                        </a>
-                                                    </div>
                                                 </div>
                                                 <div class="card-footer text-end">
                                                     <a href="" class="text-decoration-none me-2">

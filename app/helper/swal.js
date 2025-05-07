@@ -16,11 +16,17 @@ export function swalToast(success = false, message, callback, duration = 2000) {
 export function swalDelete(message) {
     return Swal.fire({
         icon: 'warning',
-        title: '<p class="text-primary m-0">Delete</p>',
+        title: '<p class="text-warning m-0 poppins-regular">Delete post</p>',
         html: '<p class="m-0 fs-7">' + message +'</p>',
         showCancelButton: true,
         allowOutsideClick: false,
-        confirmButtonColor: '#d33', 
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#0d6efd',
+        // customClass: {
+        //     popup: 'swalRoundedNone',
+        //     confirmButton: 'swalRoundedNone',
+        //     cancelButton: 'swalRoundedNone'
+        // }
     })
 }
 
