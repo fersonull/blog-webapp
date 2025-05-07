@@ -94,8 +94,8 @@ session_start();
 
                             <?php if (count($result) > 0): ?>
                                 <?php foreach ($result as $post): ?>
-                                    <div class="col-12 col-lg-4 mb-3">
-                                        <a href="post.php?pid=<?= $post['post_id'] ?>" class="text-decoration-none text-body">
+                                    <div class="col-12 col-lg-4 mb-4">
+                                        <a href="post.php?pid=<?= $post['post_id'] ?>" class="text-decoration-none text-body" style="min-height: 15rem;">
                                             <div class="card hover-scale rounded-0 border-0 shadow-sm">
                                                 <div class="card-body">
                                                     <p class="fs-7 text-gray-100 poppins-medium">
@@ -110,11 +110,13 @@ session_start();
                                                     </p>
                                                 </div>
                                                 <div class="card-footer text-end">
-                                                    <a href="" class="text-decoration-none me-2">
+                                                    <a href="" class="text-decoration-none btn btn-primary me-2 fs-8">
                                                         <i class="fas fa-pen"></i>
+                                                        <span class="d-none d-md-inline-block">Edit</span>
                                                     </a>
-                                                    <button class="btn p-0" href="app/api/delete.php?del=<?= $post['post_id'] ?>" class="text-decoration-none" data-id="<?= $post['post_id'] ?>" id="deleteBtn">
-                                                        <i class="fas fa-trash text-danger" style="pointer-events: none;"></i>
+                                                    <button class="btn btn-danger fs-8" href="app/api/delete.php?del=<?= $post['post_id'] ?>" class="text-decoration-none" data-id="<?= $post['post_id'] ?>" id="deleteBtn">
+                                                        <i class="fas fa-trash" style="pointer-events: none;"></i>
+                                                        <span class="d-none d-md-inline-block" style="pointer-events: none;">Delete</span>
                                                     </button>
                                                 </div>
                                             </div>
