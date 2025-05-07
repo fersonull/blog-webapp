@@ -145,8 +145,8 @@ class Helper
         session_destroy();
     }
 
-    public static function equalToSession($SESSION, $DATA)
+    public static function equalToSession($SESSION, $USER)
     {
-        return $SESSION === $DATA;
+        return $SESSION === $USER;
     }
 }

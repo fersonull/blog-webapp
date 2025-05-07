@@ -115,7 +115,7 @@ class PostController extends Database
 
             $stmt = $this->conn->prepare($query);
 
-            if ($stmt->execute([':pid' => $get['del']])) {
+            if ($stmt->execute([':pid' => $get['delid']])) {
                 return true;
             }
         } catch (\PDOException $err) {

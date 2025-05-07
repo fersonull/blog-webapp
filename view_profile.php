@@ -20,12 +20,20 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
 
     use App\Classes\PostController;
     use App\Helper\Helper;
-
-    $currentUserLogged = Helper::equalToSession($_SESSION['userData'][0]['user_id'], $_GET['vid']);
-
+    
+    
+    
     $postController = new PostController;
-
+    
     $result = $postController->getUserPosts($_GET['vid']);
+
+    $currentUserLogged = Helper::equalToSession($_SESSION['userData'][0]['user_id'], $result[0]['user_id']);
+
+    if ($currentUserLogged) {
+        // echo 'true';
+        header('location: /blog/profile.php');
+        exit;
+    }
     ?>
 
     <div class="mt-md-5 overflow-hidden">
@@ -43,22 +51,14 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                         </div>
                         <div class="p-3 mt-3">
                             <h5 class="poppins-bold mt-5">
-                                <?php if (!$currentUserLogged): ?>
-                                    <?= $result[0]['firstname'] ?> <?= $result[0]['lastname'] ?>
-                                <?php else: ?>
-                                    <?= $result['firstname'] ?> <?= $result['lastname'] ?>
-                                <?php endif; ?>
+                                <?= $result[0]['firstname'] ?> <?= $result[0]['lastname'] ?>
                             </h5>
                             <p class="poppins-regular fs-7">
-                            <?php if (!$currentUserLogged): ?>
-                                    @<?= $result[0]['username'] ?>
-                                <?php else: ?>
-                                    @<?= $result['username'] ?>
-                                <?php endif; ?>
+                                @<?= $result[0]['username'] ?>
                             </p>
                         </div>
 
-                        <?php if ($_SESSION['userData'][0]['user_id'] === $result[0]['user_id']): ?>
+                        <!-- <?php if ($currentUserLogged): ?>
                             <div class="d-flex gap-md-3 gap-2">
                                 <button class="btn btn-primary flex-grow-1">
                                     <i class="fas fa-plus"></i>
@@ -73,7 +73,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                                     </span>
                                 </button>
                             </div>
-                        <?php endif; ?>
+                        <?php endif; ?> -->
 
                         <!-- <div class="d-flex px-2">
                             <p class="d-flex flex-column align-items-center poppins-bold text-uppercase fs-8">

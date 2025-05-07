@@ -89,7 +89,7 @@ session_start();
                         Overview
                     </h4> -->
 
-                        <div class="row">
+                        <div class="row" id="card-post">
 
 
                             <?php if (count($result) > 0): ?>
@@ -119,10 +119,9 @@ session_start();
                                                     <a href="" class="text-decoration-none me-2">
                                                         <i class="fas fa-pen"></i>
                                                     </a>
-                                                    <a href="app/api/delete.php?del=<?= $post['post_id'] ?>" name="delete"
-                                                        class="text-decoration-none delete-link">
-                                                        <i class="fas fa-trash text-danger"></i>
-                                                    </a>
+                                                    <button class="btn p-0" href="app/api/delete.php?del=<?= $post['post_id'] ?>" class="text-decoration-none" data-id="<?= $post['post_id'] ?>" id="deleteBtn">
+                                                        <i class="fas fa-trash text-danger" style="pointer-events: none;"></i>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </a>
@@ -147,10 +146,6 @@ session_start();
 
         </div>
     </div>
-
-    <script>
-
-    </script>
 
     <script src="/blog/app/api/js/delete.js" type="module"></script>
 

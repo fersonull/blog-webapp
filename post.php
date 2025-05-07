@@ -44,7 +44,7 @@ session_start();
             <div class="row">
 
                 <!-- Blogs column -->
-                <div class="col-lg-9">
+                <div class="col-lg-9 mb-5">
 
                     <!-- blog cards -->
                     <div class="row">
@@ -94,7 +94,7 @@ session_start();
                 </div>
 
                 <!-- Comments -->
-                <div class="col-lg-3">
+                <div class="col-lg-3 mb-3">
                     <div class="card rounded-0 border-0 bg-body-tertiary">
                         <div class="card-header fw-bold">
                             <span class="text-gray-100">
