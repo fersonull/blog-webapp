@@ -88,7 +88,7 @@ class PostController extends Database
             $imgPath = "uploads/" . basename($imgName);
 
             if (!move_uploaded_file($img, $imgPath)) {
-                return;   
+                return;
             }
 
             $query = "INSERT INTO posts_tb (image, title, subtitle, content, user_id) VALUES (:image, :title, :sub, :content, :user_id)";

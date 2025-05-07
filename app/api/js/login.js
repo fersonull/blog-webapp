@@ -26,7 +26,7 @@ form.addEventListener('submit', async (e) => {
     
         if (data.status === 'success') {
             swalToast(true , data.message, () => {
-                window.location.href = '/blog/'
+                window.location.href = document.referrer
                 return
             }, 1000)
         }

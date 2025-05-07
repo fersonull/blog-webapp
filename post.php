@@ -34,7 +34,7 @@ session_start();
     ?>
 
     <main class="mt-4">
-        <div class="container-fluid px-lg-5">
+        <div class="container px-lg-5">
             <a href="/blog/">
                 <button class="mb-3 btn rounded-0 border-0">
                     <i class="fa fa-arrow-left"></i>
@@ -44,7 +44,7 @@ session_start();
             <div class="row">
 
                 <!-- Blogs column -->
-                <div class="col-lg-9 mb-5">
+                <div class="col-lg-8 mb-5">
 
                     <!-- blog cards -->
                     <div class="row">
@@ -77,12 +77,6 @@ session_start();
                                                 <p class="card-text poppins-regular fs-7 text-start" style="white-space: pre-line;">
                                                     <?= $post['content'] ?>
                                                 </p>
-
-                                                <div class="d-flex gap-2 mt-4 fs-8">
-                                                    <a href="" class="bg-body-secondary px-2 py-1 text-decoration-none text-body opacity-50">
-                                                        <?= $post['tags'] ?>
-                                                    </a>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -94,7 +88,7 @@ session_start();
                 </div>
 
                 <!-- Comments -->
-                <div class="col-lg-3 mb-3">
+                <div class="col-lg-4 mb-3">
                     <div class="card rounded-0 border-0 bg-body-tertiary">
                         <div class="card-header fw-bold">
                             <span class="text-gray-100">
@@ -139,7 +133,7 @@ session_start();
                         <div class="card-footer text-center">
                             <?php if (isset($_SESSION['userData'][0]['user_id'])): ?>
                                 <form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>?pid=<?= $post['post_id'] ?>" class="d-flex">
-                                    <textarea name="comm_content" id="comm" rows="1" class="form-control rounded-0 shadow-none flex-grow-1"></textarea>
+                                    <textarea name="comm_content" id="comm" rows="1" class="form-control rounded-0 shadow-none flex-grow-1 fs-7" placeholder="Add comment here..."></textarea>
                                     <button type="submit" name="post_comm" class="btn btn-primary rounded-start-0 flex-grow-1 d-flex align-items-center justify-content-center">
                                         <i class="fas fa-paper-plane text-white"></i>
                                     </button>
