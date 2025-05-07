@@ -15,7 +15,7 @@ class CommentController extends Database
     public function getCommentsByPost($pid)
     {
         try {
-            $query = "SELECT c.comment_id, c.content, user.username, user.user_id, c.commented_at, DATE_FORMAT(c.commented_at, '%b %d, %Y | %h:%i %p') as date FROM comments_tb AS c JOIN users_tb AS user ON c.user_id = user.user_id JOIN posts_tb AS posts ON c.post_id = posts.post_id WHERE posts.post_id = :pid ORDER BY date DESC";
+            $query = "SELECT c.comment_id, c.content, user.username, user.user_id, c.commented_at, DATE_FORMAT(c.commented_at, '%b %d, %Y | %h:%i %p') as date FROM comments_tb AS c JOIN users_tb AS user ON c.user_id = user.user_id JOIN posts_tb AS posts ON c.post_id = posts.post_id WHERE posts.post_id = :pid ORDER BY c.commented_at DESC";
 
             $stmt = $this->conn->prepare($query);
 

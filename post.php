@@ -105,7 +105,7 @@ session_start();
                             </span>
                         </div>
                         <div class="card-body">
-                            <div style="max-height: 20rem; overflow: auto;">
+                            <div style="max-height: 25rem; overflow: auto;">
 
                                 <?php if (count($comments) > 0): ?>
                                     <?php foreach ($comments as $comms): ?>
