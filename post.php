@@ -89,7 +89,7 @@ session_start();
 
                 <!-- Comments -->
                 <div class="col-lg-4 mb-3">
-                    <div class="card rounded-0 border-0 bg-body-tertiary">
+                    <div class="card rounded-0 border-0 shadow-sm">
                         <div class="card-header fw-bold">
                             <span class="text-gray-100">
                                 <?= count($comments) ?>
@@ -133,7 +133,7 @@ session_start();
                         <div class="card-footer text-center">
                             <?php if (isset($_SESSION['userData'][0]['user_id'])): ?>
                                 <form method="POST" action="<?= $_SERVER['PHP_SELF'] ?>?pid=<?= $post['post_id'] ?>" class="d-flex">
-                                    <textarea name="comm_content" id="comm" rows="1" class="form-control rounded-0 shadow-none flex-grow-1 fs-7" placeholder="Add comment here..."></textarea>
+                                    <textarea required name="comm_content" id="comm" rows="1" class="form-control rounded-0 shadow-none flex-grow-1 fs-7" placeholder="Add comment here..."></textarea>
                                     <button type="submit" name="post_comm" class="btn btn-primary rounded-start-0 flex-grow-1 d-flex align-items-center justify-content-center">
                                         <i class="fas fa-paper-plane text-white"></i>
                                     </button>

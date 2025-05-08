@@ -1,21 +1,33 @@
-import { swalToast } from "/app/helper/swal.js";
-
-console.log('loaded')
+import { swalToast } from "/app/helper/swal.js"
 
 const form = document.getElementById('uploadForm')
+const imgPlaceholder = document.getElementById('imgPlaceholder')
+const imageInput = document.querySelector('input[name="image"]')
 
-form.addEventListener('submit' , async (e) => {
-    e.preventDefault();
+imageInput.addEventListener('change', (e) => {
+    const file = e.target.files[0]
+    if (file) {
+
+        const imageUrl = URL.createObjectURL(file)
+
+        console.log(imageUrl)
+
+        imgPlaceholder.src = imageUrl
+    }
+})
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault()
 
     const formData = new FormData(e.target)
 
     try {
-        const respone = await fetch('/app/api/upload_post.php', {
+        const response = await fetch('/app/api/upload_post.php', {
             method: 'POST',
             body: formData
         })
 
-        const data = await respone.json();
+        const data = await response.json()
     
         console.log(data)
 
@@ -27,7 +39,7 @@ form.addEventListener('submit' , async (e) => {
 
         if (data.status === 'success') {
             swalToast(true, data.message, () => {
-                window.location.href = '/';
+                window.location.href = '/'
             }, 1000)
         }
     } catch (err) {

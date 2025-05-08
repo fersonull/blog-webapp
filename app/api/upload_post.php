@@ -14,4 +14,4 @@ if($postController->uploadPost($_FILES, $_POST, $_SESSION['userData'][0]['user_i
     exit;
 }
 
-echo json_encode(['status' => 'error', 'message' => 'Something went wrong']);
+echo json_encode(['status' => 'error', 'message' => 'Fill all required fields first.']);

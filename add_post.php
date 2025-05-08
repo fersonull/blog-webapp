@@ -10,6 +10,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
 <!DOCTYPE html>
 <html lang="en">
 <?php require 'app/partials/head.php' ?>
+<title>Alwrite | Upload</title>
 <body class="poppins-regular">
     <?php include 'app/partials/nav.php'; ?>
 
@@ -31,10 +32,12 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                     Back
                 </a>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-center">
                         <!-- picture upload section -->
-                        <img src="https://placehold.co/300" class="w-100">
-                        <input type="file" name="image" accept="image/*" class="shadow-none rounded-0">
+                        <label for="image">
+                            <img src="https://fakeimg.pl/300x300?text=click+here+to+upload+image&font=bebas&font_size=20" class="w-100" id="imgPlaceholder">
+                        </label>
+                        <input type="file" name="image" accept="image/*" class="shadow-none rounded-0" id="image" hidden>
                     </div>
 
                     <div class="col-md-8 py-5 px-3 px-md-4 py-md-0">

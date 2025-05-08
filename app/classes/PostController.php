@@ -91,6 +91,10 @@ class PostController extends Database
                 return;
             }
 
+            if (empty($POST['title']) || empty($POST['content'])) {
+                return;
+            }
+
             $query = "INSERT INTO posts_tb (image, title, subtitle, content, user_id) VALUES (:image, :title, :sub, :content, :user_id)";
 
             $stmt = $this->conn->prepare($query);
