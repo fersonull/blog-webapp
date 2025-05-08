@@ -32,4 +32,8 @@ class UserController extends User
         return true;
         
     }
+
+    public function getuser($user_id) {
+        return $this->getUserByID($user_id);
+    }
 }

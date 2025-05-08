@@ -2,7 +2,7 @@
 session_start();
 
 // if (!isset($_SESSION['userData'][0]['user_id'])) {
-//     header('location: /blog/login.php');
+//     header('location: login.php');
 //     exit;
 // }
 
@@ -37,12 +37,12 @@ session_start();
             <?php if (!isset($_SESSION['userData'][0]['user_id'])): ?>
                 <div class="container mt-1 mx-auto w-100 text-center">
                     <div class="w-100 w-md-25 mx-auto">
-                        <img src="/blog/app/assets/img/prof.png" class="w-100">
+                        <img src="app/assets/img/prof.png" class="w-100">
                     </div>
                     <h4 class="poppins-bold fs-2 mb-3">Login to view profile</h4>
                     <div class="d-flex flex-column align-items-center justify-content-center">
-                        <a href="/blog/login.php" class="btn btn-primary rounded-0 fs-5 poppins-semibold mb-2">Go to login</a>
-                        <a href="/blog/" class="btn rounded-0 fs-7 ">Go back home</a>
+                        <a href="login.php" class="btn btn-primary rounded-0 fs-5 poppins-semibold mb-2">Go to login</a>
+                        <a href="/" class="btn rounded-0 fs-7 ">Go back home</a>
                     </div>
                 </div>
             <?php else: ?>
@@ -126,7 +126,7 @@ session_start();
                             <?php else: ?>
                                 <div class="w-100 d-flex flex-column align-items-center justify-content-center">
                                     <div class="w-50">
-                                        <input type="image" src="/blog/app/assets/img/post.png" class="w-100" alt="">
+                                        <input type="image" src="app/assets/img/post.png" class="w-100" alt="">
                                     </div>
                                     <h4 class="mb-3">Your don't have any post</h4>
                                     <!-- <a href="add_post.php" class="btn btn-outline-primary rounded-0 border-1">
@@ -143,7 +143,7 @@ session_start();
         </div>
     </div>
 
-    <script src="/blog/app/api/js/delete.js" type="module"></script>
+    <script src="app/api/js/delete.js" type="module"></script>
 
 </body>
 

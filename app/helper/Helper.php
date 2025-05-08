@@ -34,7 +34,6 @@ class Helper
 
     public static function validateRegForm($POST, callable $callback)
     {
-    
         if (empty($POST['username']) && empty($POST['password']) && empty($POST['firstname']) && empty($POST['lastname'])) {
             
             $callback('All required fields are empty.');

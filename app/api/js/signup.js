@@ -1,4 +1,4 @@
-import { swalToast } from "/blog/app/helper/swal.js";
+import { swalToast } from "/app/helper/swal.js";
 
 const form = document.getElementById('signupForm')
 
@@ -8,7 +8,7 @@ form.addEventListener('submit' , async (e) => {
     const formData = new FormData(e.target)
 
     try {
-        const respone = await fetch('app/api/auth_register.php', {
+        const respone = await fetch('/app/api/auth_register.php', {
             method: 'POST',
             body: formData
         })

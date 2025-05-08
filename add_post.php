@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['userData'][0]['user_id'])) {
-    header('location: /blog/login.php');
+    header('location: login.php');
     exit;
 }
 ?>
@@ -26,7 +26,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
     <div class="mt-md-5 overflow-hidden">
         <div class="container-fluid px-lg-5">
             <form method="POST" enctype="multipart/form-data" class="p-3" id="uploadForm">
-                <a href="/blog/" class="text-decoration-none">
+                <a href="/" class="text-decoration-none">
                     <i class="fas fa-arrow-left mb-3"></i>
                     Back
                 </a>
@@ -34,7 +34,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                     <div class="col-md-4">
                         <!-- picture upload section -->
                         <img src="https://placehold.co/300" class="w-100">
-                        <input type="file" name="image" class="shadow-none rounded-0">
+                        <input type="file" name="image" accept="image/*" class="shadow-none rounded-0">
                     </div>
 
                     <div class="col-md-8 py-5 px-3 px-md-4 py-md-0">
@@ -72,6 +72,6 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
         </div>
     </div>
 
-    <script src="/blog/app/api/js/upload.js" type="module"></script>
+    <script src="app/api/js/upload.js" type="module"></script>
 </body>
 </html>

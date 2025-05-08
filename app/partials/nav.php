@@ -19,13 +19,13 @@ function isActive($url) {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item poppins-semibold">
-                    <a class="nav-link d-flex align-items-center justidy-content-center <?= isActive("/blog/") ? 'text-primary' : 'text-gray-100'?>" aria-current="page" href="/blog/">
+                    <a class="nav-link d-flex align-items-center justidy-content-center <?= isActive("/") ? 'text-primary' : 'text-gray-100'?>" aria-current="page" href="/">
                         <i class="fas fa-home fs-7 me-1 d-md-none"></i>
                         Home
                     </a>
                 </li>
                 <li class="nav-item poppins-semibold">
-                    <a class="nav-link d-flex align-items-center justidy-content-center <?= isActive("/blog/profile.php") ? 'text-primary' : 'text-gray-100'?>" aria-current="page" href="/blog/profile.php">
+                    <a class="nav-link d-flex align-items-center justidy-content-center <?= isActive("/profile.php") ? 'text-primary' : 'text-gray-100'?>" aria-current="page" href="profile.php">
                         <i class="fas fa-user fs-7 me-1 d-md-none"></i>
                         Profile
                     </a>

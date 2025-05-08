@@ -10,7 +10,7 @@ use App\Classes\UserController;
 
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('location: /blog/login.php');
+    header('location: login.php');
 }
 
 $res = Helper::validateLoginForm($_POST, function($param) {

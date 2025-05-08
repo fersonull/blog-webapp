@@ -1,4 +1,4 @@
-import { swalToast } from "/blog/app/helper/swal.js";
+import { swalToast } from "/app/helper/swal.js";
 
 console.log('loaded')
 
@@ -10,7 +10,7 @@ form.addEventListener('submit' , async (e) => {
     const formData = new FormData(e.target)
 
     try {
-        const respone = await fetch('app/api/upload_post.php', {
+        const respone = await fetch('/app/api/upload_post.php', {
             method: 'POST',
             body: formData
         })
@@ -27,7 +27,7 @@ form.addEventListener('submit' , async (e) => {
 
         if (data.status === 'success') {
             swalToast(true, data.message, () => {
-                window.location.href = '/blog/';
+                window.location.href = '/';
             }, 1000)
         }
     } catch (err) {

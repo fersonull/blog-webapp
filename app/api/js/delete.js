@@ -1,4 +1,4 @@
-import { swalToast, swalDelete, clickHandler } from '/blog/app/helper/swal.js';
+import { swalToast, swalDelete, clickHandler } from '/app/helper/swal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const response = await fetch("/blog/app/api/delete.php?delid=" + itemID)
+        const response = await fetch("app/api/delete.php?delid=" + itemID)
         
         const data = await response.json()
 
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         swalToast(true, data.message, () => {
             location.refresh()
             return
-        }, 2000)
+        }, 1000)
     });
 
 })

@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['userData'][0]['user_id'])) {
-    header('location: /blog/login.php');
+    header('location: login.php');
     exit;
 }
 ?>
@@ -19,19 +19,20 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
     require __DIR__ . '/vendor/autoload.php';
 
     use App\Classes\PostController;
+    use App\Classes\UserController;
     use App\Helper\Helper;
     
-    
-    
+    $userController = new UserController;
     $postController = new PostController;
     
     $result = $postController->getUserPosts($_GET['vid']);
+    $user = $userController->getUser($_GET['vid']);
 
-    $currentUserLogged = Helper::equalToSession($_SESSION['userData'][0]['user_id'], $result[0]['user_id']);
+    $currentUserLogged = Helper::equalToSession($_SESSION['userData'][0]['user_id'], $user[0]['user_id']);
 
     if ($currentUserLogged) {
         // echo 'true';
-        header('location: /blog/profile.php');
+        header('location: profile.php');
         exit;
     }
     ?>

@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['userData'][0]['user_id'])) {
-    header('location: /blog/');
+    header('location: /');
 }
 ?>
 
@@ -17,7 +17,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
     <main class="min-vh-100 d-flex align-items-center justify-content-center">
 
         <div class="p-4">
-            <a href="/blog/" class="text-decoration-none">
+            <a href="/" class="text-decoration-none">
                 <div class="mb-3">
                     <i class="fas fa-arrow-left"></i>
                     Back
@@ -28,7 +28,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
                     Alwrite
                 </p>
                 <p class="poppins-bold fs-4 m-0">Create a new account</p>
-                <p class="text-decoration-none m-0">Or <a href="/blog/login.php" class="text-decoration-none">sign in with your account</a></p>
+                <p class="text-decoration-none m-0">Or <a href="login.php" class="text-decoration-none">sign in with your account</a></p>
             </div>
 
             <form method="POST" id="signupForm" class="my-3">
@@ -97,7 +97,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
             </form>
         </div>
 
-        <script src="/blog/app/api/js/signup.js" type="module"></script>
+        <script src="app/api/js/signup.js" type="module"></script>
     </main>
 </body>
 </html>

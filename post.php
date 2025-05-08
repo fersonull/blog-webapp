@@ -35,7 +35,7 @@ session_start();
 
     <main class="mt-4">
         <div class="container px-lg-5">
-            <a href="/blog/">
+            <a href="/">
                 <button class="mb-3 btn rounded-0 border-0">
                     <i class="fa fa-arrow-left"></i>
                     Back
@@ -139,7 +139,7 @@ session_start();
                                     </button>
                                 </form>
                             <?php else: ?>
-                                <a href="/blog/login.php" class="text-center">Login to comment</a>
+                                <a href="login.php" class="text-center">Login to comment</a>
                             <?php endif; ?>
                         </div>
                     </div>

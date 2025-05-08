@@ -76,4 +76,21 @@ class User extends Database
             return;
         }
     }
+
+    public function getUserByID($user) 
+    {
+        try {
+            $query = "SELECT * FROM users_tb WHERE user_id = :user";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->execute([':user' => $user]);
+
+            return $stmt->fetchAll();
+
+        } catch (\PDOException $err) {
+            error_log("Error: " . $err->getMessage());
+            return;
+        }
+    }
 }

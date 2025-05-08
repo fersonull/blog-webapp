@@ -14,7 +14,7 @@ session_start();
     <?php include 'app/partials/nav.php'; ?>
 
     <?php
-    require __DIR__ . '/vendor/autoload.php';
+    require  './vendor/autoload.php';
 
     use App\Classes\PostController;
     use App\Helper\Helper;
