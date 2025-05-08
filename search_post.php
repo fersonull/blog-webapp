@@ -19,7 +19,6 @@ session_start();
 
     $result = $postController->searchPost($_GET['search']);
 
-    // print_r($result);
 
     ?>
 

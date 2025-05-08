@@ -6,7 +6,6 @@ use App\Classes\PostController;
 
 $postController = new PostController;
 
-// echo 'deleted';
 
 if ($postController->deletePost($_GET)) {
     echo json_encode(['status' => 'succes', 'message' => 'Deleted successful']);

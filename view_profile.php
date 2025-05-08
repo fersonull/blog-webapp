@@ -5,6 +5,27 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
     header('location: /login.php');
     exit;
 }
+
+require __DIR__ . '/vendor/autoload.php';
+
+use App\Classes\PostController;
+use App\Classes\UserController;
+use App\Helper\Helper;
+
+$userController = new UserController;
+$postController = new PostController;
+
+$result = $postController->getUserPosts($_GET['vid']);
+$user = $userController->getUser($_GET['vid']);
+
+$currentUserLogged = Helper::equalToSession($_SESSION['userData'][0]['user_id'], $user[0]['user_id'] ?? '');
+
+if ($currentUserLogged) {
+	// echo 'true';
+   	header('location: /profile.php');
+	exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -13,29 +34,8 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
 <?php require 'app/partials/head.php' ?>
 
 <body class="poppins-regular">
-    <?php
-    require_once 'app/partials/nav.php';
-
-    require __DIR__ . '/vendor/autoload.php';
-
-    use App\Classes\PostController;
-    use App\Classes\UserController;
-    use App\Helper\Helper;
-    
-    $userController = new UserController;
-    $postController = new PostController;
-    
-    $result = $postController->getUserPosts($_GET['vid']);
-    $user = $userController->getUser($_GET['vid']);
-
-    $currentUserLogged = Helper::equalToSession($_SESSION['userData'][0]['user_id'], $user[0]['user_id'] ?? '');
-
-    if ($currentUserLogged) {
-        // echo 'true';
-        header('location: profile.php');
-        exit;
-    }
-    ?>
+        
+     <?= require_once 'app/partials/nav.php'; ?>
 
     <div class="mt-md-5 overflow-hidden">
         <?php if (count($user) > 0): ?>
@@ -60,41 +60,13 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                                 </p>
                             </div>
 
-                            <!-- <?php if ($currentUserLogged): ?>
-                                <div class="d-flex gap-md-3 gap-2">
-                                    <button class="btn btn-primary flex-grow-1">
-                                        <i class="fas fa-plus"></i>
-                                        <span class="d-inline d-md-none d-xl-inline">
-                                            Add new post
-                                        </span>
-                                    </button>
-                                    <button class="btn bg-body-secondary flex-grow-1">
-                                        <i class="fas fa-pen"></i>
-                                        <span class="d-inline d-md-none d-xl-inline">
-                                            Edit profile
-                                        </span>
-                                    </button>
-                                </div>
-                            <?php endif; ?> -->
-
-                            <!-- <div class="d-flex px-2">
-                                <p class="d-flex flex-column align-items-center poppins-bold text-uppercase fs-8">
-                                    <span class="fs-4 text-primary">
-                                        <?php //count($result) ?>
-                                    </span>
-                                    Post
-                                </p>
-                            </div> -->
+                          
                         </div>
                     </div>
 
                     <!-- aside -->
                     <div class="col-md-8 py-5 px-3 px-md-4 py-md-0">
-                        <!-- <h4 class="poppins-bold fs-3 mb-4">
-                            <i class="fas fa-newspaper me-2"></i>
-                            Overview
-                        </h4> -->
-
+                        
                         <div class="row">
 
                             <h3 class="mb-3 poppins-semibold">Recent Post</h3>

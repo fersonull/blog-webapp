@@ -1,4 +1,4 @@
-import { swalToast, swalDelete, clickHandler } from '/app/helper/swal.js';
+import { swalToast, swalDelete, clickHandler } from '/app/Helper/swal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 

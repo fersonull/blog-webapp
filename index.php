@@ -98,11 +98,11 @@ session_start();
                 </div>
 
                 <!-- Search column -->
-                <div class="col-12 col-lg-4">
+                <!-- <div class="col-12 col-lg-4">
                     <div class="card-body bg-body-tertiary p-5">
 
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>

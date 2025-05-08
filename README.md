@@ -1,4 +1,18 @@
-# Blog WebApp
+# Alwrite (Blog WebApp)
+The Blog Web App is a content management platform that allows users to create, manage, and interact with blog posts. It includes essential blogging functionality and user interaction features, making it ideal for personal or collaborative content sharing.
+
+# Database Credentials
+
+hosting : {
+  username: "4629942_blogdb",
+  password: "Jplus314159265pi_"
+}
+
+local : {
+  username: "root",
+  password: ""
+}
+
 
 # Table for posts 
 CREATE TABLE `blog_db`.`posts_tb` (`post_id` INT NOT NULL AUTO_INCREMENT , `title` VARCHAR(150) NOT NULL , `subtitle` VARCHAR(100) NOT NULL , `content` MEDIUMTEXT NOT NULL , `tags` VARCHAR(50) NOT NULL , `date_created` TIMESTAMP NOT NULL , `user_id` INT NOT NULL , PRIMARY KEY (`post_id`)) ENGINE = InnoDB COMMENT = 'Table for posts.';

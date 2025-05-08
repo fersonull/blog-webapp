@@ -72,7 +72,7 @@ class User extends Database
             return false;
 
         } catch (\PDOException $err) {
-            error_log("Error: " . $err->getMessage());
+            echo "Error: " . $err->getMessage();
             return;
         }
     }
@@ -89,7 +89,7 @@ class User extends Database
             return $stmt->fetchAll();
 
         } catch (\PDOException $err) {
-            error_log("Error: " . $err->getMessage());
+            echo "Error: " . $err->getMessage();
             return;
         }
     }

@@ -1,4 +1,4 @@
-import { swalToast } from "/app/helper/swal.js"
+import { swalToast } from "/app/Helper/swal.js"
 
 const form = document.getElementById('loginForm')
 

@@ -21,7 +21,7 @@ class UserController extends User
     }
 
     public function register($cred) {
-        $userData = $this->checkUsername($cred['username']);
+        $userData = $this->checkUsername($cred['username']); 
 
         if ($userData) {
             return false;
@@ -33,7 +33,7 @@ class UserController extends User
         
     }
 
-    public function getuser($user_id) {
+    public function getUser($user_id) {
         return $this->getUserByID($user_id);
     }
 

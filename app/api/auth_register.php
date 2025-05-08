@@ -17,9 +17,6 @@ $res = Helper::validateRegForm($_POST, function($param) {
 });
 
 if ($res) {
-
-    
-
     $auth = new UserController();
 
     if ($auth->register($_POST)) {
