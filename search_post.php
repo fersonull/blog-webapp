@@ -1,8 +1,5 @@
 <?php
 session_start();
-// session_unset();
-// session_destroy();
-
 ?>
 
 <!DOCTYPE html>
@@ -17,18 +14,20 @@ session_start();
     require  './vendor/autoload.php';
 
     use App\Classes\PostController;
-    use App\Helper\Helper;
     
     $postController = new PostController;
 
-    $result = $postController->fetchAllPosts();
+    $result = $postController->searchPost($_GET['search']);
+
+    // print_r($result);
+
     ?>
 
     <main class="mt-5">
         <div class="container px-lg-5">
             <div class="card border-0 rounded-0 mb-5">
                 <!-- <div class="card-body"> -->
-                    <form action="search_post.php" method="GET" class="">
+                    <form action="/search_post.php" method="GET" class="">
                         <div class="row">
                             <div class="col-9 col-md-10 col-lg-11">
                                 <input type="search" name="search" placeholder="Search topics or author" class="form-control rounded-0 shadow-none fs-7">
@@ -92,18 +91,12 @@ session_start();
                                 </div>
                             <?php endforeach ?>
                         <?php else: ?>
-                            <h4>No post yet</h4>
+                            <h4>No Result</h4>
                         <?php endif; ?>
                     </div>
                 </div>
 
                 <!-- Search column -->
-                <div class="col-12 col-lg-4">
-                    <div class="card-body bg-body-tertiary p-5">
-
-                    </div>
-                </div>
-
             </div>
         </div>
     </main>

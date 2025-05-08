@@ -180,4 +180,23 @@ class PostController extends Database
             return false;
         }
     }
+
+    public function searchPost($search) 
+    {
+        try {
+            $query = "SELECT * FROM posts_tb JOIN users_tb ON posts_tb.user_id = users_tb.user_id WHERE title LIKE :search OR users_tb.username LIKE :search";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->execute([
+                ':search' => "%$search%"
+            ]);
+
+            $res = $stmt->fetchAll();
+
+            return $res;
+        } catch (\PDOException $err) {
+            echo $err->getMessage();
+        }
+    }
 }
