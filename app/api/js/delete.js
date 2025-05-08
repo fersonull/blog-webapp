@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         swalToast(true, data.message, () => {
-            location.refresh()
+            location.reload()
             return
         }, 1000)
     });
