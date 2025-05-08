@@ -36,4 +36,10 @@ class UserController extends User
     public function getuser($user_id) {
         return $this->getUserByID($user_id);
     }
+
+    public function upDateProfile ($user_id, $FILE) {
+
+        return $this->update($user_id, $FILE);
+
+    }
 }

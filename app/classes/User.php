@@ -93,4 +93,33 @@ class User extends Database
             return;
         }
     }
+
+    public function update($user_id, $FILE)
+    {
+        try {
+
+            $img = $FILE['image']['tmp_name'];
+            $imgName = $FILE['image']['name'];
+
+            $imgPath = "profile/" . basename($imgName);
+
+            if (!move_uploaded_file($img, $imgPath)) {
+                return false;
+            }
+
+            $query = "UPDATE users_tb SET user_profile = :img WHERE user_id = :user_id";
+
+            $stmt = $this->conn->prepare($query);
+
+            return $stmt->execute([
+                ':user_id' => $user_id,
+                ':img' => $imgPath
+            ]);
+
+        } catch (\PDOException $err) {
+            echo $err->getMessage();
+            return false;
+        }
+    }
+
 }

@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-// if (!isset($_SESSION['userData'][0]['user_id'])) {
-//     header('location: login.php');
-//     exit;
-// }
+if (!isset($_SESSION['userData'][0]['user_id'])) {
+    header('location: /login.php');
+    exit;
+}
 
 
 ?>
@@ -28,7 +28,6 @@ session_start();
 
     $result = $postController->getUserPosts($currentUser);
 
-    
     ?>
 
     <div class="mt-md-5 overflow-hidden">
@@ -52,7 +51,7 @@ session_start();
                         <div class="position-relative">
                             <div class="overflow-hidden border border-2 border-primary rounded-circle position-absolute d-flex"
                                 style="width: 8rem; height: 8rem; top: 35%; left: 7%;">
-                                <img src="app/assets/img/kim.jpeg" class="object-fit-cover w-100">
+                                <img src="/app/api/<?= $_SESSION['userData'][0]['user_profile'] ?>" class="object-fit-cover w-100">
                             </div>
                             <div class="w-100 bg-body-secondary " style="height: 13rem;">
 
@@ -72,7 +71,7 @@ session_start();
                                         Add new post
                                     </span>
                                 </a>
-                                <a href="" class="btn bg-body-secondary flex-grow-1">
+                                <a href="edit_profile.php?p=<?= $_SESSION['userData'][0]['user_id'] ?>" class="btn bg-body-secondary flex-grow-1">
                                     <i class="fas fa-pen"></i>
                                     <span class="d-inline d-md-none d-xl-inline">
                                         Edit profile

@@ -17,11 +17,6 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
     <?php
     require __DIR__ . '/vendor/autoload.php';
 
-    // use App\Classes\PostService;
-
-    // $postController = new PostService;
-
-    // $post = $postController->getPostByID();
     ?>
 
     <div class="mt-md-5 overflow-hidden">

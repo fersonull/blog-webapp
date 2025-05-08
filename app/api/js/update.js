@@ -1,8 +1,8 @@
 import { swalToast } from "/app/Helper/swal.js"
 
-const form = document.getElementById('uploadForm')
+const form = document.getElementById('editProfileForm')
 const imgPlaceholder = document.getElementById('imgPlaceholder')
-const imageInput = document.querySelector('input[name="image"]')
+const imageInput = document.getElementById('imageInp')
 
 imageInput.addEventListener('change', (e) => {
     const file = e.target.files[0]
@@ -22,7 +22,7 @@ form.addEventListener('submit', async (e) => {
     const formData = new FormData(e.target)
 
     try {
-        const response = await fetch('/app/api/upload_post.php', {
+        const response = await fetch('/app/api/update_profile.php', {
             method: 'POST',
             body: formData
         })
