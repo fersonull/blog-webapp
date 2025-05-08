@@ -97,22 +97,23 @@ session_start();
                             <?php if (count($result) > 0): ?>
                                 <?php foreach ($result as $post): ?>
                                     <div class="col-12 col-lg-4 mb-4">
-                                        <a href="post.php?pid=<?= $post['post_id'] ?>" class="text-decoration-none text-body" style="min-height: 15rem;">
-                                            <div class="card hover-scale rounded-0 border-0 shadow-sm">
-                                                <div class="card-body">
-                                                    <p class="fs-7 text-gray-100 poppins-medium">
-                                                        <?= $post['date_created'] ?>
-                                                    </p>
-                                                    <h5 class="card-title poppins-semibold">
-                                                        <?= $post['title'] ?>
-                                                    </h5>
-                                                    <p class="card-text fs-7 mb-2">
-                                                        <?= substr($post['content'], 0, 90) ?>
-                                                        <?= strlen($post['content']) >= 90 ? '...' : '' ?>
-                                                    </p>
-                                                </div>
+                                        <div class="card hover-scale rounded-0 border-0 shadow-sm">
+                                                <a href="post.php?pid=<?= $post['post_id'] ?>" class="text-decoration-none text-body" style="min-height: 15rem;">
+                                                    <div class="card-body">
+                                                        <p class="fs-7 text-gray-100 poppins-medium">
+                                                            <?= $post['date_created'] ?>
+                                                        </p>
+                                                        <h5 class="card-title poppins-semibold">
+                                                            <?= $post['title'] ?>
+                                                        </h5>
+                                                        <p class="card-text fs-7 mb-2">
+                                                            <?= substr($post['content'], 0, 90) ?>
+                                                            <?= strlen($post['content']) >= 90 ? '...' : '' ?>
+                                                        </p>
+                                                    </div>
+                                                </a>
                                                 <div class="card-footer text-end">
-                                                    <a href="" class="text-decoration-none btn btn-primary me-2 fs-8">
+                                                    <a href="edit_post.php?pid=<?= $post['post_id'] ?>" class="text-decoration-none btn btn-primary me-2 fs-8">
                                                         <i class="fas fa-pen"></i>
                                                         <span class="d-none d-md-inline-block">Edit</span>
                                                     </a>
@@ -122,7 +123,6 @@ session_start();
                                                     </button>
                                                 </div>
                                             </div>
-                                        </a>
                                     </div>
                                 <?php endforeach; ?>
                             <?php else: ?>

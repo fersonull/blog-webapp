@@ -125,4 +125,59 @@ class PostController extends Database
             echo $err->getMessage();
         }
     }
+
+    public function editPost($post_id, $FILE, $NEW) {
+        try {
+            $existingPost = $this->getPostByID($post_id);
+            
+            if (!$existingPost) {
+                return false; 
+            }
+
+            if (empty($NEW['title']) || empty($NEW['subtitle']) || empty($NEW['content'])) {
+                return;
+            }
+            
+            $updateFields = [];
+            $params = [':post_id' => $post_id];
+            
+            if (!empty($FILE['image']['name'])) {
+                $img = $FILE['image']['tmp_name'];
+                $imgName = $FILE['image']['name'];
+                $imgPath = "uploads/" . basename($imgName);
+                
+                if (move_uploaded_file($img, $imgPath)) {
+                    $updateFields[] = "image = :img";
+                    $params[':img'] = $imgPath;
+                }
+            }
+            
+            if (!empty($NEW['title'])) {
+                $updateFields[] = "title = :title";
+                $params[':title'] = $NEW['title'];
+            }
+            
+            if (!empty($NEW['subtitle'])) {
+                $updateFields[] = "subtitle = :sub";
+                $params[':sub'] = $NEW['subtitle'];
+            }
+            
+            if (!empty($NEW['content'])) {
+                $updateFields[] = "content = :content";
+                $params[':content'] = $NEW['content'];
+            }
+            
+            if (empty($updateFields)) {
+                return true; 
+            }
+            
+            $query = "UPDATE posts_tb SET " . implode(", ", $updateFields) . " WHERE post_id = :post_id";
+            
+            $stmt = $this->conn->prepare($query);
+            return $stmt->execute($params);
+        } catch (\PDOException $err) {
+            echo $err->getMessage();
+            return false;
+        }
+    }
 }
