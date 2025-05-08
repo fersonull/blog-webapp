@@ -76,7 +76,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                                         </p>
                                     </div>
                                     <div class="d-flex gap-md-3 gap-2 mt-4">
-                                        <button type="submit" class="btn btn-primary rounded-0 form-control">Update</button>
+                                        <button type="submit" class="btn btn-primary rounded form-control">Update</button>
                                     </div>
                                 </div>
                             </form>
