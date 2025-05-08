@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['userData'][0]['user_id'])) {
-    header('location: /login.php');
+    header('location: /profile.php');
     exit;
 }
 
@@ -41,18 +41,25 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                     </div>
                     <h4 class="poppins-bold fs-2 mb-3">Login to view profile</h4>
                     <div class="d-flex flex-column align-items-center justify-content-center">
-                        <a href="login.php" class="btn btn-primary rounded-0 fs-5 poppins-semibold mb-2">Go to login</a>
+                        <a href="/login.php" class="btn btn-primary rounded-0 fs-5 poppins-semibold mb-2">Go to login</a>
                         <a href="/" class="btn rounded-0 fs-7 ">Go back home</a>
                     </div>
                 </div>
             <?php else: ?>
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
+                <div class="row mt-5 mt-md-2">
+                    <div class="col d-md-flex  flex-column align-items-center justify-content-center">
                         <!-- Profile here -->
-                        <div class="position-relative shadow-sm" style="min-width: 30rem;">
-                            <form method="POST" id="editProfileForm">
+                        <div class="position-relative w-md-full">
+                            <a href="/profile.php">
+                                <i class="fas fa-arrow-left mb-2"></i>
+                                Back
+                            </a>
+                            <div class="w-100 mb-2">
+                                <h3>Edit profile</h3>
+                            </div>
+                            <form method="POST" id="editProfileForm" class="shadow-sm">
                                 <label for="imageInp" class="overflow-hidden border border-2 border-primary rounded-circle position-absolute d-flex"
-                                    style="width: 8rem; height: 8rem; top: 35%; left: 7%;">
+                                    style="width: 8rem; height: 8rem; top: 40%; left: 7%;">
                                     <img src="/app/api/<?= $user[0]['user_profile'] ?? 'https://fakeimg.pl/300x300?text=add+photo&font=bebas&font_size=60' ?>" class="object-fit-cover w-100" id="imgPlaceholder">
                                 </label>
                                 <input type="file" accept="image/*" name="image" id="imageInp" hidden>
@@ -61,8 +68,8 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                                 </div>
                                 <div class="p-3 mt-3">
                                     <div class="p-3 mt-3">
-                                        <h5 class="poppins-bold mt-5">
-                                            <?= $_SESSION['userData'][0]['firstname'] ?>     <?= $_SESSION['userData'][0]['lastname'] ?>
+                                        <h5 class="poppins-bold mt-1">
+                                            <?= $_SESSION['userData'][0]['firstname'] ?> <?= $_SESSION['userData'][0]['lastname'] ?>
                                         </h5>
                                         <p class="poppins-regular fs-7">
                                             @<?= $_SESSION['userData'][0]['username'] ?>

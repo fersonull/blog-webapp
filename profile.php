@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['userData'][0]['user_id'])) {
-    header('location: /login.php');
-    exit;
-}
+// if (!isset($_SESSION['userData'][0]['user_id'])) {
+//     header('location: /login.php');
+//     exit;
+// }
 
 
 ?>
@@ -61,7 +61,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                             </div>
                             <div class="p-3 mt-3">
                                 <h5 class="poppins-bold mt-5">
-                                    <?= $_SESSION['userData'][0]['firstname'] ?>     <?= $_SESSION['userData'][0]['lastname'] ?>
+                                    <?= $_SESSION['userData'][0]['firstname'] ?> <?= $_SESSION['userData'][0]['lastname'] ?>
                                 </h5>
                                 <p class="poppins-regular fs-7">
                                     @<?= $_SESSION['userData'][0]['username'] ?>
@@ -74,7 +74,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                                         Add new post
                                     </span>
                                 </a>
-                                <a href="edit_profile.php?p=<?= $_SESSION['userData'][0]['user_id'] ?>" class="btn bg-body-secondary flex-grow-1">
+                                <a href="edit_profile.php" class="btn bg-body-secondary flex-grow-1">
                                     <i class="fas fa-pen"></i>
                                     <span class="d-inline d-md-none d-xl-inline">
                                         Edit profile
