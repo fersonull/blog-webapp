@@ -2,6 +2,16 @@
 function isActive($url) {
     return $url === parse_url($_SERVER['REQUEST_URI'])['path'];
 }
+
+require __DIR__ . '/../../vendor/autoload.php';
+
+use App\Classes\UserController;
+
+$userController = new UserController;
+
+$currentUser = $_SESSION['userData'][0]['user_id'] ?? '';
+
+$user = $userController->getuser($currentUser);
 ?>
 
 <nav class="navbar navbar-expand-md bg-body-tertiary sticky-top">
@@ -41,7 +51,7 @@ function isActive($url) {
 
         <?php if (isset($_SESSION['userData'][0]['user_id'])): ?>
             <a href="profile.php" class="bg-secondary bg-primary rounded-circle d-none d-md-block overflow-hidden" style="width: 2.5rem; height: 2.5rem;">
-                <img src="app/assets/img/kim.jpeg" width="100%" class="object-fit-cover">
+                <img src="/app/api/<?= $user[0]['user_profile'] ?>" width="100%" class="object-fit-cover">
             </a>    
         <?php else: ?>
             <a href="login.php" class="btn btn-primary rounded-0 px-3 fs-7 d-md-block d-none">Login</a> 

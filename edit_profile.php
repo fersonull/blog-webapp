@@ -21,14 +21,14 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
     require __DIR__ . '/vendor/autoload.php';
 
     use App\Classes\PostController;
+    use App\Classes\UserController;
 
     $postController = new PostController;
+    $userController = new UserController;
 
     $currentUser = $_SESSION['userData'][0]['user_id'] ?? '';
 
-    $result = $postController->getUserPosts($currentUser);
-
-    
+    $user = $userController->getuser($currentUser);
     ?>
 
     <div class="mt-md-5 overflow-hidden">
@@ -53,7 +53,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                             <form method="POST" id="editProfileForm">
                                 <label for="imageInp" class="overflow-hidden border border-2 border-primary rounded-circle position-absolute d-flex"
                                     style="width: 8rem; height: 8rem; top: 35%; left: 7%;">
-                                    <img src="https://fakeimg.pl/300x300?text=add+photo&font=bebas&font_size=60" class="object-fit-cover w-100" id="imgPlaceholder">
+                                    <img src="/app/api/<?= $user[0]['user_profile'] ?? 'https://fakeimg.pl/300x300?text=add+photo&font=bebas&font_size=60' ?>" class="object-fit-cover w-100" id="imgPlaceholder">
                                 </label>
                                 <input type="file" accept="image/*" name="image" id="imageInp" hidden>
                                 <div class="w-100 bg-body-secondary " style="height: 13rem;">

@@ -21,12 +21,15 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
     require __DIR__ . '/vendor/autoload.php';
 
     use App\Classes\PostController;
+    use App\Classes\UserController;
 
     $postController = new PostController;
+    $userController = new UserController;
 
     $currentUser = $_SESSION['userData'][0]['user_id'] ?? '';
 
     $result = $postController->getUserPosts($currentUser);
+    $user = $userController->getuser($currentUser);
 
     ?>
 
@@ -51,7 +54,7 @@ if (!isset($_SESSION['userData'][0]['user_id'])) {
                         <div class="position-relative">
                             <div class="overflow-hidden border border-2 border-primary rounded-circle position-absolute d-flex"
                                 style="width: 8rem; height: 8rem; top: 35%; left: 7%;">
-                                <img src="/app/api/<?= $_SESSION['userData'][0]['user_profile'] ?>" class="object-fit-cover w-100">
+                                <img src="/app/api/<?= $user[0]['user_profile'] ?? '../assets/img/kimg.jpeg' ?>" class="object-fit-cover w-100">
                             </div>
                             <div class="w-100 bg-body-secondary " style="height: 13rem;">
 
