@@ -40,21 +40,23 @@ $user = $userController->getuser($currentUser);
                         Profile
                     </a>
                 </li>
-                <form class="d-flex mt-2 d-md-none" role="search">
-                    <input class="form-control shadow-none rounded-0 me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-primary rounded-start-0" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </form>
+                <?php if(!isset($_SESSION['userData'][0]['user_id'])):?>
+                    <li class="nav-item poppins-semibold d-md-none">
+                        <a class="nav-link d-flex align-items-center justidy-content-center <?= isActive("/login.php") ? 'text-primary' : 'text-gray-100'?>" aria-current="page" href="/login.php">
+                            <i class="fas fa-right-to-bracket fs-7 me-1 d-md-none"></i>
+                            Login
+                        </a>
+                    </li>
+                <?php endif ?>
             </ul>
         </div>
 
         <?php if (isset($_SESSION['userData'][0]['user_id'])): ?>
-            <a href="profile.php" class="bg-secondary bg-primary rounded-circle d-none d-md-block overflow-hidden" style="width: 2.5rem; height: 2.5rem;">
-                <img src="/app/api/<?= $user[0]['user_profile'] ?>" width="100%" class="object-fit-cover">
-            </a>    
+            <a href="/profile.php" class="bg-secondary bg-primary rounded-circle d-none d-md-block overflow-hidden" style="width: 2.5rem; height: 2.5rem;">
+                <img src="/app/api/<?= $user[0]['user_profile'] ?? '../assets/img/kim.jpeg' ?>" width="100%" class="object-fit-cover">
+            </a>
         <?php else: ?>
-            <a href="login.php" class="btn btn-primary rounded-0 px-3 fs-7 d-md-block d-none">Login</a> 
+            <a href="/login.php" class="btn btn-primary rounded-0 px-3 fs-7 d-md-block d-none">Login</a> 
         <?php endif; ?>
 
         

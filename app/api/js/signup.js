@@ -25,7 +25,7 @@ form.addEventListener('submit' , async (e) => {
 
         if (data.status === 'success') {
             swalToast(true, data.message, () => {
-                window.location.href = '/';
+                window.location.href = '/login.php';
             }, 1000)
         }
     } catch (err) {

@@ -80,17 +80,6 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
                 <!-- <hr> -->
                 
                 <div class="mb-4">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-check d-flex text-md-start">
-                                <input class="form-check-input fs-8 rounded-0 shadow-none me-1" type="checkbox" id="remember">
-                                <label for="remember" class="form-check-label fs-8 user-select-none">Remember me</label>
-                            </div>
-                        </div>
-                        <div class="col-6 text-md-end justify-content-end text-center d-flex">
-                            <a href="" class="fs-8">Forgot password</a>
-                        </div>
-                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary rounded-0 form-control mb-2">Sign in</button>
                 <!-- <a href="#" class="form-control btn text-decoration-none border-0 btn-outline-secondary">Cancel</a> -->

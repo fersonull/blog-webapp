@@ -26,6 +26,8 @@ if ($currentUserLogged) {
 	exit;
 }
 
+// print_r($user);
+
 ?>
 
 <!DOCTYPE html>
@@ -33,9 +35,10 @@ if ($currentUserLogged) {
 <title>Blog</title>
 <?php require 'app/partials/head.php' ?>
 
+
 <body class="poppins-regular">
-        
-     <?= require_once 'app/partials/nav.php'; ?>
+    
+    <?= require_once 'app/partials/nav.php'; ?>
 
     <div class="mt-md-5 overflow-hidden">
         <?php if (count($user) > 0): ?>
@@ -46,7 +49,7 @@ if ($currentUserLogged) {
                         <div class="position-relative">
                             <div class="overflow-hidden border border-2 border-primary rounded-circle position-absolute d-flex"
                                 style="width: 8rem; height: 8rem; top: 35%; left: 7%;">
-                                <img src="app/assets/img/kim.jpeg" class="object-fit-cover w-100">
+                                <img src="/app/api/<?= $user[0]['user_profile'] ?? '../assets/img/kim.jpeg'?>" class="object-fit-cover w-100">
                             </div>
                             <div class="w-100 bg-body-secondary " style="height: 13rem;">
 

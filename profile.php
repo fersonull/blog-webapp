@@ -53,8 +53,8 @@ session_start();
                         <!-- Profile here -->
                         <div class="position-relative">
                             <div class="overflow-hidden border border-2 border-primary rounded-circle position-absolute d-flex"
-                                style="width: 8rem; height: 8rem; top: 35%; left: 7%;">
-                                <img src="/app/api/<?= $user[0]['user_profile'] ?? '../assets/img/kimg.jpeg' ?>" class="object-fit-cover w-100">
+                                style="width: 8rem; height: 8rem; top: 30%; left: 7%;">
+                                <img src="/app/api/<?= $user[0]['user_profile'] ?? '../assets/img/kim.jpeg' ?>" class="object-fit-cover w-100">
                             </div>
                             <div class="w-100 bg-body-secondary " style="height: 13rem;">
 
@@ -80,6 +80,14 @@ session_start();
                                         Edit profile
                                     </span>
                                 </a>
+                            </div>
+                            <div class="d-flex gap-md-3 gap-2 mt-3">
+                                <button class="btn text-danger bg-body-secondary flex-grow-1" id="logoutBtn">
+                                    <i class="fas fa-right-from-bracket"></i>
+                                    <span class="d-inline d-md-none d-xl-inline">
+                                        Logout
+                                    </span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -146,6 +154,7 @@ session_start();
     </div>
 
     <script src="app/api/js/delete.js" type="module"></script>
+    <script src="app/api/js/logout.js" type="module"></script>
 
 </body>
 

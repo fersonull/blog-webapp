@@ -30,6 +30,23 @@ export function swalDelete(message) {
     })
 }
 
+export function swalLogOut(message) {
+    return Swal.fire({
+        icon: 'warning',
+        title: '<p class="text-warning m-0 poppins-regular">Log out?</p>',
+        html: '<p class="m-0 fs-7">' + message +'</p>',
+        showCancelButton: true,
+        allowOutsideClick: false,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#0d6efd',
+        // customClass: {
+        //     popup: 'swalRoundedNone',
+        //     confirmButton: 'swalRoundedNone',
+        //     cancelButton: 'swalRoundedNone'
+        // }
+    })
+}
+
 export function clickHandler(parent, event, callback) {
     parent.addEventListener(event, (e) => {
         callback(e)
