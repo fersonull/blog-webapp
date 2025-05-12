@@ -81,7 +81,7 @@ if (isset($_SESSION['userData'][0]['user_id'])) {
                 
                 <div class="mb-4">
                 </div>
-                <button type="submit" class="btn btn-primary rounded-0 form-control mb-2">Sign in</button>
+                <button type="submit" class="btn btn-primary rounded-0 form-control mb-2">Register</button>
                 <!-- <a href="#" class="form-control btn text-decoration-none border-0 btn-outline-secondary">Cancel</a> -->
             </form>
         </div>

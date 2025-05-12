@@ -6,7 +6,7 @@ class Database
 
     private $host = 'localhost';
     private $dbname = 'blog_db';
-    private $username = 'root';
+    private $username = 'root';     
     private $password = '';
     private $conn;
 

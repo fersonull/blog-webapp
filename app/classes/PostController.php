@@ -135,7 +135,7 @@ class PostController extends Database
             }
 
             if (empty($NEW['title']) || empty($NEW['subtitle']) || empty($NEW['content'])) {
-                return;
+                return false;
             }
             
             $updateFields = [];

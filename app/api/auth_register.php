@@ -21,8 +21,6 @@ if ($res) {
 
     if ($auth->register($_POST)) {
 
-        // Helper::storeUserToSession();
-
         echo json_encode(['status' => 'success', 'message' => 'Successfuly registered!']);
         exit;
     }
